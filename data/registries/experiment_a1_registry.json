@@ -1,0 +1,1092 @@
+{
+  "actors": [
+    {
+      "actor_id": "shock_brent_crude",
+      "name": "Brent Crude Spot Price",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "GLOBAL",
+      "sector": "energy",
+      "external_ids": {
+        "fred_series": "DCOILBRENTEU"
+      }
+    },
+    {
+      "actor_id": "shock_wti_crude",
+      "name": "WTI Crude Oil Spot Price",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "GLOBAL",
+      "sector": "energy",
+      "external_ids": {
+        "fred_series": "DCOILWTICO"
+      }
+    },
+    {
+      "actor_id": "shock_fed_funds",
+      "name": "Federal Funds Effective Rate",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "US",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "FEDFUNDS"
+      }
+    },
+    {
+      "actor_id": "shock_vix",
+      "name": "CBOE VIX Volatility Index",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "US",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "VIXCLS"
+      }
+    },
+    {
+      "actor_id": "shock_usd_index",
+      "name": "US Dollar Broad Trade-Weighted Index",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "US",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "DTWEXBGS"
+      }
+    },
+    {
+      "actor_id": "shock_yield_spread",
+      "name": "10Y-2Y Treasury Yield Spread",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "US",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "T10Y2Y"
+      }
+    },
+    {
+      "actor_id": "shock_hy_spread",
+      "name": "ICE BofA US High Yield Option-Adjusted Spread",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "US",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "BAMLH0A0HYM2"
+      }
+    },
+    {
+      "actor_id": "inst_fed_us",
+      "name": "Federal Reserve System",
+      "actor_type": "central_bank",
+      "layer": 1,
+      "geography": "US",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "FEDFUNDS",
+        "gdelt_actor": "actor_FED"
+      }
+    },
+    {
+      "actor_id": "inst_sec_us",
+      "name": "U.S. Securities and Exchange Commission",
+      "actor_type": "regulator",
+      "layer": 1,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "gdelt_actor": "actor_SEC"
+      }
+    },
+    {
+      "actor_id": "inst_imf",
+      "name": "International Monetary Fund",
+      "actor_type": "intl_org",
+      "layer": 1,
+      "geography": "GLOBAL",
+      "sector": "macro",
+      "external_ids": {
+        "gdelt_actor": "actor_IMF",
+        "imf_indicator": "NGDP_RPCH"
+      }
+    },
+    {
+      "actor_id": "inst_boe_uk",
+      "name": "Bank of England",
+      "actor_type": "central_bank",
+      "layer": 1,
+      "geography": "UK",
+      "sector": "macro",
+      "external_ids": {
+        "gdelt_actor": "actor_BOE",
+        "imf_indicator": "PCPIPCH:GBR"
+      }
+    },
+    {
+      "actor_id": "inst_fca_uk",
+      "name": "Financial Conduct Authority",
+      "actor_type": "regulator",
+      "layer": 1,
+      "geography": "UK",
+      "sector": "financials",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "APA",
+      "name": "APA Corporation",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001841666"
+      }
+    },
+    {
+      "actor_id": "BKR",
+      "name": "Baker Hughes",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001701605"
+      }
+    },
+    {
+      "actor_id": "CVX",
+      "name": "Chevron Corporation",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000093410"
+      }
+    },
+    {
+      "actor_id": "COP",
+      "name": "ConocoPhillips",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001163165"
+      }
+    },
+    {
+      "actor_id": "CTRA",
+      "name": "Coterra",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000858470"
+      }
+    },
+    {
+      "actor_id": "DVN",
+      "name": "Devon Energy",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001090012"
+      }
+    },
+    {
+      "actor_id": "FANG",
+      "name": "Diamondback Energy",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001539838"
+      }
+    },
+    {
+      "actor_id": "EOG",
+      "name": "EOG Resources",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000821189"
+      }
+    },
+    {
+      "actor_id": "EQT",
+      "name": "EQT Corporation",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000033213"
+      }
+    },
+    {
+      "actor_id": "XOM",
+      "name": "ExxonMobil",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000034088"
+      }
+    },
+    {
+      "actor_id": "HAL",
+      "name": "Halliburton",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000045012"
+      }
+    },
+    {
+      "actor_id": "KMI",
+      "name": "Kinder Morgan",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001506307"
+      }
+    },
+    {
+      "actor_id": "MPC",
+      "name": "Marathon Petroleum",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001510295"
+      }
+    },
+    {
+      "actor_id": "OXY",
+      "name": "Occidental Petroleum",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000797468"
+      }
+    },
+    {
+      "actor_id": "OKE",
+      "name": "Oneok",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001039684"
+      }
+    },
+    {
+      "actor_id": "PSX",
+      "name": "Phillips 66",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001534701"
+      }
+    },
+    {
+      "actor_id": "SLB",
+      "name": "Schlumberger",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000087347"
+      }
+    },
+    {
+      "actor_id": "TRGP",
+      "name": "Targa Resources",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001389170"
+      }
+    },
+    {
+      "actor_id": "TPL",
+      "name": "Texas Pacific Land Corporation",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001811074"
+      }
+    },
+    {
+      "actor_id": "VLO",
+      "name": "Valero Energy",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0001035002"
+      }
+    },
+    {
+      "actor_id": "WMB",
+      "name": "Williams Companies",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "energy",
+      "external_ids": {
+        "cik": "0000107263"
+      }
+    },
+    {
+      "actor_id": "BP.L",
+      "name": "BP",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "CNA.L",
+      "name": "Centrica",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "NG.L",
+      "name": "National Grid plc",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "SHEL.L",
+      "name": "Shell plc",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "SSE.L",
+      "name": "SSE plc",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "ADI",
+      "name": "Analog Devices",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000006281"
+      }
+    },
+    {
+      "actor_id": "CTSH",
+      "name": "Cognizant",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0001058290"
+      }
+    },
+    {
+      "actor_id": "FSLR",
+      "name": "First Solar",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0001274494"
+      }
+    },
+    {
+      "actor_id": "CRM",
+      "name": "Salesforce",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0001108524"
+      }
+    },
+    {
+      "actor_id": "TEL",
+      "name": "TE Connectivity",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0001385157"
+      }
+    },
+    {
+      "actor_id": "TXN",
+      "name": "Texas Instruments",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000097476"
+      }
+    },
+    {
+      "actor_id": "VRSN",
+      "name": "Verisign",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0001014473"
+      }
+    },
+    {
+      "actor_id": "CSCO",
+      "name": "Cisco",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000858877"
+      }
+    },
+    {
+      "actor_id": "INTU",
+      "name": "Intuit",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000896878"
+      }
+    },
+    {
+      "actor_id": "MSFT",
+      "name": "Microsoft",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000789019"
+      }
+    },
+    {
+      "actor_id": "AKAM",
+      "name": "Akamai Technologies",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0001086222"
+      }
+    },
+    {
+      "actor_id": "APH",
+      "name": "Amphenol",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000820313"
+      }
+    },
+    {
+      "actor_id": "FFIV",
+      "name": "F5, Inc.",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0001048695"
+      }
+    },
+    {
+      "actor_id": "MU",
+      "name": "Micron Technology",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000723125"
+      }
+    },
+    {
+      "actor_id": "SNPS",
+      "name": "Synopsys",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "technology",
+      "external_ids": {
+        "cik": "0000883241"
+      }
+    },
+    {
+      "actor_id": "FITB",
+      "name": "Fifth Third Bancorp",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0000035527"
+      }
+    },
+    {
+      "actor_id": "PGR",
+      "name": "Progressive Corporation",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0000080661"
+      }
+    },
+    {
+      "actor_id": "RF",
+      "name": "Regions Financial Corporation",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0001281761"
+      }
+    },
+    {
+      "actor_id": "SPGI",
+      "name": "S&P Global",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0000064040"
+      }
+    },
+    {
+      "actor_id": "KEY",
+      "name": "KeyCorp",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0000091576"
+      }
+    },
+    {
+      "actor_id": "AMP",
+      "name": "Ameriprise Financial",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0000820027"
+      }
+    },
+    {
+      "actor_id": "AON",
+      "name": "Aon plc",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0000315293"
+      }
+    },
+    {
+      "actor_id": "AIZ",
+      "name": "Assurant",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0001267238"
+      }
+    },
+    {
+      "actor_id": "BAC",
+      "name": "Bank of America",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0000070858"
+      }
+    },
+    {
+      "actor_id": "BK",
+      "name": "BNY Mellon",
+      "actor_type": "bank",
+      "layer": 2,
+      "geography": "US",
+      "sector": "financials",
+      "external_ids": {
+        "cik": "0001390777"
+      }
+    },
+    {
+      "actor_id": "BDX",
+      "name": "Becton Dickinson",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000010795"
+      }
+    },
+    {
+      "actor_id": "BIIB",
+      "name": "Biogen",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000875045"
+      }
+    },
+    {
+      "actor_id": "BSX",
+      "name": "Boston Scientific",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000885725"
+      }
+    },
+    {
+      "actor_id": "BMY",
+      "name": "Bristol Myers Squibb",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000014272"
+      }
+    },
+    {
+      "actor_id": "COR",
+      "name": "Cencora",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0001140859"
+      }
+    },
+    {
+      "actor_id": "CVS",
+      "name": "CVS Health",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000064803"
+      }
+    },
+    {
+      "actor_id": "DVA",
+      "name": "DaVita",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000927066"
+      }
+    },
+    {
+      "actor_id": "ELV",
+      "name": "Elevance Health",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0001156039"
+      }
+    },
+    {
+      "actor_id": "HUM",
+      "name": "Humana",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000049071"
+      }
+    },
+    {
+      "actor_id": "MCK",
+      "name": "McKesson Corporation",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "healthcare",
+      "external_ids": {
+        "cik": "0000927653"
+      }
+    },
+    {
+      "actor_id": "AME",
+      "name": "Ametek",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0001037868"
+      }
+    },
+    {
+      "actor_id": "BA",
+      "name": "Boeing",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0000012927"
+      }
+    },
+    {
+      "actor_id": "CHRW",
+      "name": "C.H. Robinson",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0001043277"
+      }
+    },
+    {
+      "actor_id": "CSX",
+      "name": "CSX Corporation",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0000277948"
+      }
+    },
+    {
+      "actor_id": "DE",
+      "name": "Deere & Company",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0000315189"
+      }
+    },
+    {
+      "actor_id": "DOV",
+      "name": "Dover Corporation",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0000029905"
+      }
+    },
+    {
+      "actor_id": "FAST",
+      "name": "Fastenal",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0000815556"
+      }
+    },
+    {
+      "actor_id": "HWM",
+      "name": "Howmet Aerospace",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0000004281"
+      }
+    },
+    {
+      "actor_id": "ITW",
+      "name": "Illinois Tool Works",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0000049826"
+      }
+    },
+    {
+      "actor_id": "NOC",
+      "name": "Northrop Grumman",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0001133421"
+      }
+    },
+    {
+      "actor_id": "PWR",
+      "name": "Quanta Services",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0001050915"
+      }
+    },
+    {
+      "actor_id": "RSG",
+      "name": "Republic Services",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "US",
+      "sector": "industrials",
+      "external_ids": {
+        "cik": "0001060391"
+      }
+    },
+    {
+      "actor_id": "ALW.L",
+      "name": "Alliance Witan",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "AAL.L",
+      "name": "Anglo American plc",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "ANTO.L",
+      "name": "Antofagasta plc",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "ABF.L",
+      "name": "Associated British Foods",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "AZN.L",
+      "name": "AstraZeneca",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "AV.L",
+      "name": "Aviva",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BAB.L",
+      "name": "Babcock International",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BA.L",
+      "name": "BAE Systems",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BARC.L",
+      "name": "Barclays",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BTRW.L",
+      "name": "Barratt Redrow",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BEZ.L",
+      "name": "Beazley",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BKG.L",
+      "name": "Berkeley Group Holdings",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BATS.L",
+      "name": "British American Tobacco",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BLND.L",
+      "name": "British Land",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BNZL.L",
+      "name": "Bunzl",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "BRBY.L",
+      "name": "Burberry Group",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "CPG.L",
+      "name": "Compass Group",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "CRDA.L",
+      "name": "Croda International",
+      "actor_type": "large_firm",
+      "layer": 2,
+      "geography": "UK",
+      "sector": "diversified",
+      "external_ids": {}
+    }
+  ]
+}
