@@ -18,7 +18,7 @@ Replication code and data for:
 Requires Python 3.11 and [uv](https://docs.astral.sh/uv/).
 
 ```bash
-git clone https://github.com/olegroshka/harp.git && cd harp
+git clone <repo-url> && cd harp
 uv sync
 
 # Run the core result (Table 5: 8 architectures, ~4 seconds)
