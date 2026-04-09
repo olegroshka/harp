@@ -243,7 +243,7 @@ The second stage operates on Stage~1 residuals $r_{i,t} = y_{i,t} - \hat{y}^{\ma
 Three interchangeable engines model the residual dynamics:
 \begin{enumerate}[nosep]
   \item \textbf{PCA + diagonal AR:} Extract $K$ principal components from the exponentially-weighted residual covariance, fit per-component AR(1) coefficients.
-  \item \textbf{DMD + reduced operator:} Dynamic Mode Decomposition provides a rank-$K$ approximation of the one-step propagator via the Koopman framework (Appendix~A). The diagonal or full reduced propagator $\tilde{A}$ serves as the transition matrix.
+  \item \textbf{DMD + reduced operator:} Dynamic Mode Decomposition provides a rank-$K$ approximation of the one-step propagator via the Koopman framework \citep[Appendix~A;][]{roshka2026spectral}. The diagonal or full reduced propagator $\tilde{A}$ serves as the transition matrix.
   \item \textbf{Ridge regression:} Direct regularised regression of $r_{t+1}$ on $r_t$ in the full $N$-dimensional space.
 \end{enumerate}
 
@@ -898,6 +898,11 @@ Timmermann, A. (2006).
 \newblock In Elliott, G., Granger, C.~W.~J., and Timmermann, A., editors,
   \emph{Handbook of Economic Forecasting}, volume~1, pages 135--196. Elsevier.
 
+\bibitem[Roshka(2026)]{roshka2026spectral}
+Roshka, O. (2026).
+\newblock Regularised spectral state-space models for cross-sectional investment dynamics: Dual regularisation, rolling bases, and structural evolution.
+\newblock Available at SSRN: \url{https://dx.doi.org/10.2139/ssrn.6512600}.
+
 \end{thebibliography}
 
 % ══════════════════════════════════════════════════════════
@@ -910,7 +915,7 @@ Timmermann, A. (2006).
 \section{DMD Mathematics}
 \label{app:dmd}
 
-Exact DMD \citep{kutz2016dynamic} provides a rank-$K$ approximation of the linear propagator mapping consecutive cross-sectional snapshots. In the two-stage architecture, DMD operates on the exponentially-weighted demeaned Stage~1 residuals, not on the raw panel. Given a snapshot matrix $X = [x_1, \ldots, x_{T-1}]$ and $Y = [x_2, \ldots, x_T]$ with $x_t \in \R^N$ (columns are demeaned residual vectors), the truncated SVD $X = U_r \Sigma_r V_r^*$ yields the reduced propagator $\tilde{A} = U_r^* Y V_r \Sigma_r^{-1} \in \R^{K \times K}$, where $K \leq \min(N, T-1)$ is the truncation rank. The eigendecomposition $\tilde{A} W = W \Lambda$ produces DMD eigenvalues $\lambda_k$ encoding per-mode growth rate ($|\lambda_k|$) and oscillation frequency ($\arg \lambda_k$). For forecasting, the relevant objects are the left singular vectors $U_r$ (the orthonormal basis spanning the dominant $K$-dimensional subspace) and the diagonal or full matrix $\tilde{A}$ (the transition dynamics). In the paper's two-stage architecture, these are applied to Stage~1 residuals, not to the raw panel. Spectral radius clipping $\tilde{A} \leftarrow \tilde{A} \cdot \min(1, 0.99 / \max_k |\lambda_k(\tilde{A})|)$ ensures stability. This uniform scalar multiplication (rather than per-eigenvalue projection inside the unit circle) preserves the eigenvector structure of $\tilde{A}$ exactly and avoids the need to reconstruct $\tilde{A}$ from its eigendecomposition. The cost is that stable modes are unnecessarily dampened: e.g., if $\max |\lambda_k| = 1.05$, a mode at $|\lambda| = 0.90$ is compressed to $0.848$. Since Table~\ref{tab:method_comparison} shows that the DMD-based models achieve statistically indistinguishable $R^2$ from non-spectral methods, this conservative clipping does not materially affect the headline results, but a per-eigenvalue clip that leaves stable modes untouched could improve the standalone DMD baseline.
+Exact DMD \citep{kutz2016dynamic} provides a rank-$K$ approximation of the linear propagator mapping consecutive cross-sectional snapshots. The spectral state-space estimation engine used here---DMD basis extraction, Kalman filtering with spherical observation noise regularisation, and adaptive process noise---is described in full detail in \citet{roshka2026spectral}, which establishes its standalone forecasting properties. In the two-stage architecture of the present paper, DMD operates on the exponentially-weighted demeaned Stage~1 residuals, not on the raw panel. Given a snapshot matrix $X = [x_1, \ldots, x_{T-1}]$ and $Y = [x_2, \ldots, x_T]$ with $x_t \in \R^N$ (columns are demeaned residual vectors), the truncated SVD $X = U_r \Sigma_r V_r^*$ yields the reduced propagator $\tilde{A} = U_r^* Y V_r \Sigma_r^{-1} \in \R^{K \times K}$, where $K \leq \min(N, T-1)$ is the truncation rank. The eigendecomposition $\tilde{A} W = W \Lambda$ produces DMD eigenvalues $\lambda_k$ encoding per-mode growth rate ($|\lambda_k|$) and oscillation frequency ($\arg \lambda_k$). For forecasting, the relevant objects are the left singular vectors $U_r$ (the orthonormal basis spanning the dominant $K$-dimensional subspace) and the diagonal or full matrix $\tilde{A}$ (the transition dynamics). In the paper's two-stage architecture, these are applied to Stage~1 residuals, not to the raw panel. Spectral radius clipping $\tilde{A} \leftarrow \tilde{A} \cdot \min(1, 0.99 / \max_k |\lambda_k(\tilde{A})|)$ ensures stability. This uniform scalar multiplication (rather than per-eigenvalue projection inside the unit circle) preserves the eigenvector structure of $\tilde{A}$ exactly and avoids the need to reconstruct $\tilde{A}$ from its eigendecomposition. The cost is that stable modes are unnecessarily dampened: e.g., if $\max |\lambda_k| = 1.05$, a mode at $|\lambda| = 0.90$ is compressed to $0.848$. Since Table~\ref{tab:method_comparison} shows that the DMD-based models achieve statistically indistinguishable $R^2$ from non-spectral methods, this conservative clipping does not materially affect the headline results, but a per-eigenvalue clip that leaves stable modes untouched could improve the standalone DMD baseline.
 
 \subsection*{DMD-Based Kalman Filter}
 
