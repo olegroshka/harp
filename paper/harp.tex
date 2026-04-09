@@ -626,7 +626,32 @@ Both FRED and lag checks are detailed in the appendices; the train-only causalit
 
 In concrete terms, the $+0.047$ $R^2$ gain corresponds to a 6.8\% reduction in out-of-sample RMSE (from 0.176 to 0.164 in percentile-rank units, or equivalently a 1.2~percentile-point improvement in forecast precision). Cross-sectional rank information coefficients (Spearman $\rho$ between predicted and actual rank values each quarter) confirm the improvement: M2 achieves mean IC $= 0.822$ versus G1's $0.794$ ($\Delta = +0.029$, $t = 6.30$, $p < 0.001$, 35/40 quarters positive). \emph{Note:} these IC levels reflect the high autocorrelation of the rank prediction target ($\rho \approx 0.60$) and are not comparable to information coefficients on return predictions, where IC $> 0.1$ is typically considered strong. Restricting to the 82 firm-layer actors, the firm-only IC is $0.806$ for M2 versus $0.773$ for G1 ($\Delta = +0.033$, $t = 6.17$, 35/40 quarters positive). The IC information ratio (mean/std) improves from 11.9 to 15.3 for the full panel and from 10.3 to 12.9 for firms only, indicating the M2 advantage is both larger in magnitude and more stable across quarters.
 
-A preliminary portfolio analysis (available in the replication archive) tests whether the architecture's improved rank forecasts translate into equity returns. Sorting 59~US firms quarterly by the \emph{architecture disagreement}---the difference between the global (G1) and mixture (M2) predicted intensity---produces a long-only top-20 portfolio with annualised return $17.2\%$ and Sharpe ratio $0.99$ versus $15.7\%$ and $0.89$ for the equal-weight benchmark over 40~quarters (2015--2024). The active return ($+1.2\%$ annualised, IR~$= 0.21$) is not statistically significant ($t = 0.38$, $p = 0.70$, 40~quarters), but the signal consistently reduces portfolio volatility ($18.0\%$ vs $18.8\%$) and maximum drawdown ($24\%$ vs $28\%$). The effect is a risk-reduction signal, not an alpha source: the architecture identifies firms whose exposure to the global factor structure is overstated, and these firms exhibit lower realised volatility. A longer evaluation window or a broader universe is needed to determine whether the modest return advantage is genuine (see Limitation~8).
+A preliminary portfolio analysis (available in the replication archive) tests whether the architecture's improved rank forecasts translate into equity returns on 59~US firms over 40~quarters (2015--2024). Because the mixture architecture's prediction advantage is concentrated in the tech/health block ($\Delta R^2 = +0.249$, Table~\ref{tab:per_block}), the analysis focuses on within-block stock selection for the 25~tech/health firms. The \emph{local component}---the difference between the mixture (M2) and global (G1) predicted intensity, i.e., the unique information from block-specific estimation---serves as the selection signal. Table~\ref{tab:portfolio} reports the results.
+
+\begin{table}[H]
+\centering
+\caption{Portfolio performance within the tech/health block (25 firms, 40 quarters, 2015--2024). ``Top-third'' selects ${\sim}8$ firms with the highest signal score each quarter; ``EW TH'' is the equal-weight benchmark over all 25 tech/health firms. The active return is the difference between the signal portfolio and the benchmark. Sharpe ratios are annualised; IR is the annualised information ratio of the active return; $t$ and $p$ test whether the mean active return differs from zero.}
+\label{tab:portfolio}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Portfolio & Ann.\ Ret & Vol & Sharpe & MaxDD & IR & $t$ ($p$) \\
+\midrule
+EW all 59 firms        & 15.7\% & 18.8\% & 0.88 & 28\% & --- & --- \\
+EW tech/health (25)    & 18.1\% & 19.3\% & 0.98 & 17\% & --- & --- \\
+\midrule
+\multicolumn{7}{l}{\emph{Signal: local component (M2$-$G1), contemporaneous, high $\to$ long}} \\
+Top-third TH           & 20.5\% & 19.7\% & 1.06 & 16\% & $+0.47$ & $1.50$ ($0.14$) \\
+\midrule
+\multicolumn{7}{l}{\emph{Signal: predicted change (pred\_m2 $-$ lagged actual), high $\to$ long}} \\
+Top-third TH           & 19.8\% & 19.0\% & 1.00 & 15\% & $+0.29$ & $0.92$ ($0.37$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two observations. First, the signal portfolios achieve Sharpe ratios above 1.0, but the majority of this performance reflects the tech/health sector return (Sharpe $0.98$ for the equal-weight benchmark). The signal's marginal contribution---the information ratio of the active return---is positive (IR~$= +0.47$ for the local component, $+0.29$ for predicted change) but not statistically significant at conventional levels ($p = 0.14$ and $p = 0.37$ respectively, 40~quarters). The probabilistic Sharpe ratio of the active return exceeds 95\% for both signals, indicating the active Sharpe is likely positive, though the sample is too short for definitive inference.
+
+Second, the local component signal does not predict returns at longer horizons: cross-correlations between the signal and forward quarterly returns are below $|r| = 0.03$ at all lags from 0 to 4~quarters ($p > 0.35$ in all cases). The contemporaneous result (IR~$= +0.47$) reverses at a 2-quarter lag (IR~$= -0.43$), consistent with mean reversion rather than a persistent return predictor. The prediction target (CapEx/Assets percentile rank) is not a return signal; any return relevance operates indirectly. Whether a longer sample, broader universe, or return-targeted prediction would yield significant portfolio-level gains remains open (see Limitation~8).
 
 \subsection{Train-Only Causality Audit}
 
