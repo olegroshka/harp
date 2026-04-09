@@ -87,6 +87,51 @@ PYTHONIOENCODING=utf-8 uv run python scripts/generate_figures.py
 | `held_out_and_stratified.py` | Section 5.4-5.5 (held-out decade, stratified placebo) |
 | `local_dmd_vs_pca.py` | Section 6.1 (local DMD vs PCA+ridge) |
 | `generate_figures.py` | Figures 2, 3, 5 |
+| `standalone_diagnostic.py` | Appendix B (standalone DMD R^2: 0.415, 0.483, 0.486) |
+
+## Portfolio Analysis (Table 12)
+
+Scripts in `scripts/portfolio/` reproduce the portfolio backtest in Section 5.8.
+Run in order:
+
+```bash
+# 1. Extract per-firm predictions from the mixture pipeline (~4s)
+PYTHONIOENCODING=utf-8 uv run python scripts/portfolio/extract_predictions.py
+
+# 2. Download quarterly returns for 59 US firms (~30s, requires internet)
+PYTHONIOENCODING=utf-8 uv run python scripts/portfolio/prepare_returns.py
+
+# 3. Run the full backtest (all signals, subsample analysis, TC sensitivity)
+PYTHONIOENCODING=utf-8 uv run python scripts/portfolio/run_backtest.py
+
+# 4. Sector-level decomposition
+PYTHONIOENCODING=utf-8 uv run python scripts/portfolio/sector_analysis.py
+
+# 5. Timing analysis (lag structure, leak tests)
+PYTHONIOENCODING=utf-8 uv run python scripts/portfolio/timing_analysis.py
+
+# 6. Alternative signal constructions (sector rotation, within-block selection)
+PYTHONIOENCODING=utf-8 uv run python scripts/portfolio/alternative_uses.py
+```
+
+Key result (Table 12): within the tech/health block (25 firms), the local component
+signal (M2-G1) produces Sharpe 1.06 vs 0.98 equal-weight benchmark. Active IR = +0.47,
+but not statistically significant (t = 1.50, p = 0.14, 40 quarters).
+
+| Script | Purpose |
+|--------|---------|
+| `extract_predictions.py` | Save per-actor M2/G1/AR(1) predictions |
+| `prepare_returns.py` | Download and compute quarterly equity returns |
+| `signals.py` | Signal definitions (14 variants) |
+| `portfolio.py` | Portfolio construction (quintile sort, long-short, turnover) |
+| `metrics.py` | Performance metrics (Sharpe, PSR, IR, drawdown, Calmar) |
+| `run_backtest.py` | Main backtest runner |
+| `sector_analysis.py` | Sector decomposition of G1-M2 disagreement |
+| `timing_analysis.py` | Signal lag analysis and look-ahead tests |
+| `alternative_uses.py` | Sector rotation, within-block selection, regime timing |
+| `test_backtest.py` | Verification tests (random signal, perfect foresight, leak check) |
+| `deep_dive_disagr.py` | Concentrated portfolios, persistence, vol scaling |
+| `final_analysis.py` | Long-only analysis with per-year active returns |
 
 ## Data
 
