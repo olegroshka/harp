@@ -14,12 +14,12 @@ dependencies = [
   "pyarrow>=14.0",
   "statsmodels>=0.14",
   "matplotlib>=3.7",
+  "yfinance>=0.2",
 ]
 
 [project.optional-dependencies]
 gpu = ["torch>=2.2"]
 data-pipeline = [
-  "yfinance>=0.2",
   "fredapi>=0.5",
   "pydantic>=2.7",
   "pyyaml>=6.0",
