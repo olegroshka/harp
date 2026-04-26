@@ -9,9 +9,11 @@ Replication code and data for:
 
 1. A two-stage architecture (global pooled AR(1) + block-specific local PCA+ridge) improves full-panel out-of-sample R^2 from 0.630 to 0.677 on a 93-actor quarterly investment panel mixing macro indicators, institutional data, and firm-level ratios.
 
-2. The gain (+0.047, CI [+0.036, +0.058], 10/10 windows, placebo z = 7.82) arises from removing cross-block interference in residual dynamics. It requires data-type heterogeneity and does not replicate on homogeneous firm-only panels.
+2. The gain (+0.047, CI [+0.036, +0.058], 10/10 windows, placebo z = 7.82) arises from removing cross-block interference in residual dynamics. It requires sufficient cross-sectional dispersion in autoregressive structure across the panel; data-type heterogeneity reliably produces this dispersion, but firm-only panels with appropriate ratio choices (CapEx/Assets on the 146-firm panel: +0.013 at T=3, +0.018 at T=5) can also satisfy it.
 
 3. Among linear estimators, the gain is architectural rather than methodological. Per-actor gradient boosting with the same block decomposition (R^2 = 0.657) does not close the gap, showing the advantage combines block-specific estimation with low-rank factor extraction.
+
+4. **Cross-regime replication (UK/EU and combined panels):** A 109-actor UK/EU heterogeneous panel (sampled 2011Q2–2025Q4 from EODHD across nine European exchanges, restricted to EU/UK ISIN prefixes) yields Δ = +0.017 at a 3-year training window (NW-HAC bw=1 one-sided p < 0.001, 8/8 windows positive, placebo z = 2.31). A combined US + UK/EU panel of 202 actors over the overlap window yields Δ = +0.030 (NW-HAC bw=1 one-sided p < 0.0001, 8/8 windows positive, placebo z = 9.68 — exceeding the original US-only z = 7.82). The architectural test M2 > G1 was pre-registered (see `UK_EU_PRE_REGISTRATION.md`).
 
 ## Quick Start
 
@@ -62,6 +64,16 @@ PYTHONIOENCODING=utf-8 uv run python scripts/local_dmd_vs_pca.py        # ~5s
 
 # Phase 6: Figures
 PYTHONIOENCODING=utf-8 uv run python scripts/generate_figures.py
+
+# Phase 7: UK/EU and combined-panel cross-regime replication (~10 min)
+PYTHONIOENCODING=utf-8 uv run python scripts/table5_uk_eu.py \
+    --variant us_eu_combined --t-yr 3 --block-scheme us_inherited       # ~10s, headline combined-panel result
+PYTHONIOENCODING=utf-8 uv run python scripts/table5_uk_eu.py \
+    --variant eu_only --t-yr 3 --block-scheme us_inherited              # ~10s, standalone UK/EU result
+PYTHONIOENCODING=utf-8 uv run python scripts/dm_hac_uk_eu.py            # ~5s, NW-HAC inference
+PYTHONIOENCODING=utf-8 uv run python scripts/lowo_block_uk_eu.py        # ~5s, leave-one-window-out
+PYTHONIOENCODING=utf-8 uv run python scripts/table7_placebo_uk_eu.py    # ~7 min, 1000-permutation placebo
+PYTHONIOENCODING=utf-8 uv run python scripts/regime_subwindows_uk_eu.py # ~5s, regime stratification
 ```
 
 ## Script-to-Table Mapping
@@ -88,6 +100,16 @@ PYTHONIOENCODING=utf-8 uv run python scripts/generate_figures.py
 | `local_dmd_vs_pca.py` | Section 6.1 (local DMD vs PCA+ridge) |
 | `generate_figures.py` | Figures 2, 3, 5 |
 | `standalone_diagnostic.py` | Appendix B (standalone DMD R^2: 0.415, 0.483, 0.486) |
+| `table5_uk_eu.py` | Section 6 (Tables 10–13: UK/EU and combined-panel architectures) |
+| `dm_hac_uk_eu.py` | Section 6.3 (DM-HAC inference on UK/EU and combined panels) |
+| `lowo_block_uk_eu.py` | Appendix L (LOWO block selection on UK/EU panel) |
+| `table7_placebo_uk_eu.py` | Section 6.4 (combined-panel placebo z = 9.68) |
+| `regime_subwindows_uk_eu.py` | Section 6.5 (Brexit / COVID / post-COVID sub-windows) |
+| `data_pipeline/build_experiment_b1.py` | Appendix L.1 (UK/EU panel construction with `--eu-only` and combined variants) |
+| `data_pipeline/feasibility_audit_uk_eu.py` | Appendix L.1 (data-feasibility audit) |
+| `data_pipeline/fetch_eodhd_eu_prices.py` | EODHD price fetcher (UK/EU equities) |
+| `data_pipeline/fetch_eodhd_eu_fundamentals.py` | EODHD fundamentals fetcher (UK/EU firms) |
+| `data_pipeline/fetch_eodhd_macro.py` | EODHD macro fetcher (BoE Bank Rate, EU proxies) |
 
 ## Portfolio Analysis (Table 12)
 
@@ -137,11 +159,23 @@ but not statistically significant (t = 1.50, p = 0.14, 40 quarters).
 
 | File | Description |
 |------|-------------|
-| `data/intensities/experiment_a1_intensities.parquet` | 93-actor primary panel (84 quarters, 2005Q1-2025Q4) |
-| `data/registries/experiment_a1_registry.json` | Actor metadata (sector, layer, actor type) |
+| `data/intensities/experiment_a1_intensities.parquet` | 93-actor US primary panel (84 quarters, 2005Q1–2025Q4) |
+| `data/registries/experiment_a1_registry.json` | Actor metadata (sector, layer, actor type) — US panel |
 | `data/processed/edgar_balance_sheet.parquet` | SEC EDGAR data for 146-firm and 270-actor panels |
+| `data/intensities/experiment_b1_intensities.parquet` | 109-actor UK/EU panel (full, including ADR cross-listings) |
+| `data/intensities/experiment_b1_eu_only_intensities.parquet` | 109-actor UK/EU panel restricted to EU/UK ISIN prefixes (paper headline) |
+| `data/intensities/experiment_b1_eu_only_firms_only_intensities.parquet` | UK/EU firms-only sub-panel (scope-falsification test) |
+| `data/intensities/experiment_b1_us_eu_combined_intensities.parquet` | Combined US + UK/EU panel, 202 actors over 59-quarter overlap window |
+| `data/intensities/experiment_b1_us_eu_combined_firms_only_intensities.parquet` | Combined firms-only sub-panel |
+| `data/registries/experiment_b1_*_registry.json` | Actor metadata for the corresponding UK/EU and combined panels |
+| `data/audit/uk_eu_coverage_matrix.csv` | UK/EU data-feasibility audit (Phase 1 output) |
+| `data/audit/uk_eu_feasibility_report.md` | Narrative summary of the feasibility audit |
 
-The primary panel contains quarterly investment intensity values for 7 macro indicators (FRED min-max normalised), 4 institutional actors, and 82 US-listed firms (cross-sectional percentile ranks of CapEx/Assets). The 82-firm sub-panel is a balanced panel of S&P 500 constituents with complete data over the sample period.
+The US primary panel contains quarterly investment intensity values for 7 macro indicators (FRED min-max normalised), 4 institutional actors, and 82 US-listed firms (cross-sectional percentile ranks of CapEx/Assets). The 82-firm sub-panel is a balanced panel of S&P 500 constituents with complete data over the sample period.
+
+The UK/EU and combined panels follow the same construction. **Raw EODHD source files are not redistributed in this archive** (subscription terms prohibit redistribution). The `scripts/data_pipeline/fetch_eodhd_*.py` scripts re-fetch the source data given an EODHD API key (`EODHD_API_KEY`); the derived intensity panels and registries above are committed and are sufficient to reproduce every result in the paper. UK/EU fundamentals were sourced from EODHD across nine European exchanges (London, Xetra, Paris, Amsterdam, Swiss, Madrid, Stockholm, Oslo, Copenhagen, Helsinki); we gratefully acknowledge EODHD for academic data access.
+
+The pre-registered analysis plan for the UK/EU extension (committed before any UK/EU data were retrieved) is in `UK_EU_PRE_REGISTRATION.md`. Per-experiment outputs that back every reported number are in `results/metrics/`. Data-source layout details are in `DATA_MANIFEST.md`.
 
 ## Dependencies
 
@@ -173,8 +207,9 @@ uv sync --extra data-pipeline
 
 | Variable | Required | Source |
 |----------|----------|--------|
-| `FRED_API_KEY` | Yes | [FRED API](https://fred.stlouisfed.org/docs/api/api_key.html) (free registration) |
+| `FRED_API_KEY` | Yes (US panel + UK/EU macro proxies) | [FRED API](https://fred.stlouisfed.org/docs/api/api_key.html) (free registration) |
 | `BEA_API_KEY` | Optional | [BEA API](https://apps.bea.gov/API/signup/) (falls back to Excel downloads) |
+| `EODHD_API_KEY` | Required only to re-fetch UK/EU raw data; derived intensities are committed | [EODHD](https://eodhd.com/) (subscription; academic discount available) |
 
 Set before running:
 ```bash
@@ -210,13 +245,14 @@ PYTHONIOENCODING=utf-8 uv run python scripts/data_pipeline/data_audit.py
 
 | Source | API Key | Rate Limit | Data |
 |--------|---------|------------|------|
-| SEC EDGAR | None (User-Agent only) | 10 req/s | Firm balance sheets (CapEx, Assets) |
-| FRED/ALFRED | `FRED_API_KEY` | 120 req/min | Macro indicators (GDP, rates, VIX) |
+| SEC EDGAR | None (User-Agent only) | 10 req/s | US firm balance sheets (CapEx, Assets) |
+| FRED/ALFRED | `FRED_API_KEY` | 120 req/min | Macro indicators (GDP, rates, VIX); EU proxies for UK/EU panel |
 | GDELT GKG 2.0 | None | None | Narrative intensity signals |
 | BEA | Optional `BEA_API_KEY` | None | Input-output tables |
 | IMF DataMapper | None | None | Cross-country macro (GDP, CPI) |
 | OECD SDMX 3.0 | None | None | Leading indicators |
 | Yahoo Finance | None | Best-effort | Equity OHLCV |
+| EODHD | `EODHD_API_KEY` | per-plan | UK/EU equities and fundamentals across nine European exchanges (London, Xetra, Paris, Amsterdam, Swiss, Madrid, Stockholm, Oslo, Copenhagen, Helsinki). Raw data not redistributed. |
 
 ## Paper
 

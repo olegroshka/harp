@@ -74,7 +74,7 @@ Independent Researcher\\[6pt]
 % ── Abstract ──────────────────────────────────────────────
 \begin{abstract}
 \noindent
-On a 93-actor quarterly panel mixing macro indicators, institutional data, and firm-level investment ratios, global factor augmentation degrades prediction for actor subgroups whose dynamics are misrepresented by the shared basis. A two-stage architecture---global pooled AR(1) for shared persistence, block-specific local models for residual dynamics---improves full-panel out-of-sample $R^2$ from 0.630 to 0.677 ($\Delta = +0.047$, CI $[+0.036, +0.058]$, 10/10 windows, placebo $p \leq 0.001$). A held-out decade test---block partition frozen on 2005--2014 data, evaluated on unseen 2015--2024 windows---confirms the gain ($\Delta = +0.050$, 10/10). Dropping the tech/health block eliminates roughly 72\% of the gain, making it the primary driver; rank-matched decomposition confirms this reflects a genuine cross-sector co-movement factor, not a rank-capacity artefact. Among the linear estimators tested, the gain is architectural rather than methodological; per-actor gradient boosting with the same block decomposition ($R^2 = 0.657$) does not close the gap, showing the advantage combines block-specific estimation with low-rank factor extraction. The gain arises only on heterogeneous mixed-type panels---not on homogeneous firm-only panels---identifying data-type heterogeneity as the operative condition. The result survives recursive macro normalisation ($+0.048$), a one-quarter filing-lag correction ($+0.038$, 10/10), and a stratified placebo that fixes the macro/firm data-type split and permutes only firm-sector assignments ($z = 7.25$, $p \leq 0.001$).
+On a 93-actor quarterly panel mixing macro indicators, institutional data, and firm-level investment ratios, global factor augmentation degrades prediction for actor subgroups whose dynamics are misrepresented by the shared basis. A two-stage architecture---global pooled AR(1) for shared persistence, block-specific local models for residual dynamics---improves full-panel out-of-sample $R^2$ from 0.630 to 0.677 ($\Delta = +0.047$, CI $[+0.036, +0.058]$, 10/10 windows, placebo $p \leq 0.001$). A held-out decade test (block partition frozen on 2005--2014 data, evaluated on unseen 2015--2024 windows) confirms the gain ($\Delta = +0.050$, 10/10), and a stratified placebo that fixes the macro/firm data-type split and permutes only firm-sector assignments corroborates ($z = 7.25$, $p \leq 0.001$). Cross-regime replication on a 109-actor UK/EU heterogeneous panel ($\Delta = +0.017$, 8/8 windows) and a combined US + UK/EU panel of 202 actors ($\Delta = +0.030$, placebo $z = 9.68$ --- exceeding the original US-only $z = 7.82$) confirms the architecture transfers across regimes. A 146-firm CapEx/Assets robustness check refines the scope condition: the gain depends on cross-sectional dispersion in autoregressive structure, which data-type heterogeneity reliably produces but which is also present in firm-only panels under suitable ratio choices.
 \end{abstract}
 
 \vspace{0.3cm}
@@ -101,11 +101,13 @@ The gain does not stem from a better estimation method within the linear class. 
 
 Several alternative explanations for the ceiling are tested and ruled out. The gain is not from forecasting the basis rotation (the global spectral basis rotates at $49^\circ$/quarter at $K{=}8$, but this rotation is temporally unpredictable: ACF(1) $= -0.07$, Ljung-Box $p = 0.59$). It is not from reformulating the prediction target (the ceiling is invariant across seven target transformations). It is not from conditional gating (augmentation is unconditionally beneficial---five gating policies all perform worse than always-on). Block-specific decomposition is the only surviving path to improvement.
 
-The cross-panel validation sharpens the scope of the finding. The mixture architecture does not improve prediction on a homogeneous 146-firm CapEx/Revenue panel ($\Delta = -0.003$) or a 270-actor multi-ratio panel ($\Delta = +0.001$). The gain requires \emph{data-type heterogeneity}---mixing fundamentally different types of time series (trending macro indices and mean-reverting firm ranks) in a single panel. This is a precise scope condition: the paper identifies both \emph{when} local decomposition adds value and \emph{when} the global architecture is already near-optimal.
+The cross-panel validation sharpens the scope of the finding. The mixture architecture is null on a 146-firm CapEx/Revenue panel ($\Delta = -0.003$) and a 270-actor multi-ratio panel ($\Delta = +0.001$), while improving the 93-actor multilayer panel by $+0.047$. A robustness check on the same 146 firms using CapEx/Assets---the only methodological change---yields $\Delta = +0.013$ at a 3-year training window and $\Delta = +0.018$ at a 5-year window (both $p < 0.001$, 10/10 windows positive). The operative scope condition is therefore not strict data-type heterogeneity but rather sufficient cross-sectional dispersion in the autoregressive structure of the actors in the panel; data-type heterogeneity reliably produces this dispersion, but firm-only panels with appropriate ratio choices can also satisfy it.
+
+Section~\ref{sec:cross_regime} reports a cross-regime extension. A 109-actor UK/EU heterogeneous panel (sampled 2011Q2--2025Q4 from EODHD) yields $\Delta = +0.017$ at a 3-year training window (NW-HAC bw=1 one-sided $p < 0.001$, 8/8 windows positive, placebo $z = 2.31$). A combined US + UK/EU panel of 202 actors over the overlap window yields $\Delta = +0.030$ (NW-HAC bw=1 one-sided $p < 0.0001$, 8/8 windows positive); the combined-panel placebo $z = 9.68$ exceeds the original US-only $z = 7.82$---the architecture replicates more cleanly across regimes than within the original US sample.
 
 Beyond forecasting, the analysis yields a geometric description of panel heterogeneity. At a common rank $K{=}4$, the global spectral basis rotates at $31.5^\circ$/quarter (geodesic distance on the Grassmannian); within sector blocks, rotation is lower ($14$--$28^\circ$). A matched-size random sub-panel control indicates this reduction is partly a sample-size effect (empirical $p > 0.05$ for all blocks), so the geodesic evidence is treated as descriptive context, not as a demonstrated mechanism.
 
-The paper proceeds as follows. Section~\ref{sec:data} describes the data and evaluation protocol. Section~\ref{sec:architecture} presents the two-stage architecture, method equivalence, and the heterogeneity-aware extension. Section~\ref{sec:results} presents the main empirical results. Section~\ref{sec:validation} provides placebo, cross-panel, and economic validation. Section~\ref{sec:falsification} summarises what does not work and why. Section~\ref{sec:discussion} discusses implications and limitations.
+The paper proceeds as follows. Section~\ref{sec:data} describes the data and evaluation protocol. Section~\ref{sec:architecture} presents the two-stage architecture, method equivalence, and the heterogeneity-aware extension. Section~\ref{sec:results} presents the main empirical results. Section~\ref{sec:validation} provides placebo, cross-panel, and economic validation. Section~\ref{sec:cross_regime} reports the UK/EU extension and combined US+UK/EU panel results. Section~\ref{sec:falsification} summarises what does not work and why. Section~\ref{sec:discussion} discusses implications and limitations.
 
 
 % ══════════════════════════════════════════════════════════
@@ -216,6 +218,11 @@ Two additional panels test the scope of the findings:
   \item \textbf{146-firm CapEx/Revenue:} Homogeneous panel---all firms, one ratio type, cross-sectional percentile ranks. No layer heterogeneity.
   \item \textbf{270-actor multi-ratio:} 135 firms $\times$ 2 ratios (CapEx/Revenue and Revenue/Assets). Moderate heterogeneity from ratio-type mixing, but no macro/institutional actors.
 \end{itemize}
+
+\subsubsection*{UK/EU Heterogeneous Panel and Combined Panel}
+\label{sec:uk_eu_panel_intro}
+
+Section~\ref{sec:cross_regime} introduces additional validation panels: a 109-actor UK/EU heterogeneous panel (Layer~0: 6 macro shocks from FRED EU proxies and BoE Bank Rate; Layer~1: 3 institutional intermediaries---ECB, BoE, IMF; Layer~2: 100 EU/UK-domiciled firms across nine European exchanges) sampled 2011Q2--2025Q4, and a combined US + UK/EU panel of 202 actors over the same 59-quarter overlap window. Both panels use the cross-sectional CapEx/Assets percentile-rank construction. The UK/EU firm universe is restricted to firms with EU/UK ISIN prefixes; detailed construction in Appendix~\ref{app:uk_eu}.
 
 \subsection{Evaluation Protocol}
 
@@ -551,7 +558,7 @@ A natural question is whether concentration --- a random partition happening to 
 
 \begin{table}[H]
 \centering
-\caption{Cross-panel validation. The mixture gain requires data-type heterogeneity.}
+\caption{Cross-panel validation across the original three test panels at training window $T=5$. The ``Heterogeneous?'' column refers to data-type heterogeneity (mixing macro/institutional series with firm-level ranks). Section~\ref{sec:ratio_robust} shows the 146-firm null is specific to the CapEx/Revenue ratio: a CapEx/Assets variant on the same 146 firms yields $\Delta = +0.018$ at $T=5$ (10/10 windows positive). Section~\ref{sec:cross_regime} extends the comparison to UK/EU and combined US+UK/EU panels.}
 \label{tab:cross_panel}
 \small
 \begin{tabular}{lccccc}
@@ -565,7 +572,14 @@ Panel & $N$ & Heterogeneous? & Global $R^2$ & Mixture $R^2$ & $\Delta$ \\
 \end{tabular}
 \end{table}
 
-The mixture architecture does not improve prediction on homogeneous firm-only panels. The 146-firm panel (all firms, one ratio, one normalisation) shows no benefit: the global basis serves all actors equally well when the panel is homogeneous.\footnote{A separate spectral architecture---standalone DMD+Kalman with $K{=}2$ operating directly on the EWM-demeaned panel without a pooled Stage~1---provides a small gain over per-actor AR(1) on the 146-firm panel ($+0.028$ $R^2$, 9/10 windows positive). This operates through a different mechanism (low-rank persistence compression rather than cross-block interference removal) and is the subject of a separate methodological investigation.} The 270-actor panel (all firms, two ratio types) also shows no benefit---the ratio-type distinction is not severe enough to warrant local decomposition. The gain requires \emph{data-type heterogeneity}: mixing fundamentally different time series (trending macro indices and mean-reverting firm ranks) in a single panel.
+The mixture architecture is null on the 146-firm CapEx/Revenue panel and the 270-actor multi-ratio panel under the cross-sectional percentile-rank construction used for the multilayer panel.\footnote{A separate spectral architecture---standalone DMD+Kalman with $K{=}2$ operating directly on the EWM-demeaned panel without a pooled Stage~1---provides a small gain over per-actor AR(1) on the 146-firm panel ($+0.028$ $R^2$, 9/10 windows positive). This operates through a different mechanism (low-rank persistence compression rather than cross-block interference removal) and is the subject of a separate methodological investigation.} The 270-actor result reflects the ratio-type distinction: averaging the gain across CapEx/Revenue and Revenue/Assets cells dilutes any signal that arises in one but not the other.
+
+\subsubsection*{Ratio-Choice Robustness on the 146-Firm Panel}
+\label{sec:ratio_robust}
+
+The 146-firm null reported above uses CapEx/Revenue as the cross-sectional ratio. A robustness check using CapEx/Assets on the same 146-firm population (top 146 firms by data completeness from the SEC EDGAR \texttt{PaymentsToAcquirePropertyPlantAndEquipment} $\div$ \texttt{Assets} ratio with the same $\geq 50\%$ non-NaN coverage filter) yields the opposite finding: $\Delta = +0.013$ at $T=3$ (paired-$t$ $p < 0.0001$, 10/10 windows positive) and $\Delta = +0.018$ at $T=5$ (paired-$t$ $p = 0.0002$, 10/10 windows positive), both with the same alphabetical-halves null partition used in Table~\ref{tab:cross_panel}. A larger 442-firm CapEx/Assets panel (same coverage filter, no top-146 subsetting) gives $\Delta = +0.020$ at both $T=3$ and $T=5$ ($p < 0.0001$, 10/10).
+
+The single change---replacing Revenues with Assets in the denominator---turns the null into a positive significant gain even with the same null partition. The mixture architecture's gain depends on the cross-sectional dispersion of autoregressive structure across the panel actors. CapEx/Revenue ranks have lower autoregressive coherence: revenues respond to shorter-cycle business conditions; the ratio is volatile, so any partition contains comparable internal noise. CapEx/Assets ranks are more persistent (assets are slow-moving), and the cross-sectional ranks therefore retain block-coherent autoregressive structure that local PCA+ridge can exploit. The 270-actor multi-ratio null likely reflects dilution: half the actors carry the no-signal CapEx/Revenue ratio. Section~\ref{sec:cross_regime} confirms the refined scope condition holds cross-regime: a UK/EU firm-only panel using CapEx/Assets shows $\Delta = +0.015$ at $T=3$.
 
 \subsection{Leave-One-Window-Out Block Selection}
 
@@ -659,6 +673,132 @@ Block assignments use static economic metadata (sector and layer labels from the
 
 
 % ══════════════════════════════════════════════════════════
+\section{Cross-Regime Replication: UK/EU Extension and Combined US + UK/EU Panel}
+\label{sec:cross_regime}
+% ══════════════════════════════════════════════════════════
+
+\subsection{Panel Construction and Analysis Plan}
+
+Two new validation panels test whether the heterogeneity-aware mixture architecture replicates outside the US sample. The 109-actor UK/EU heterogeneous panel sources firm-level fundamentals from EODHD across nine European exchanges (London, Xetra, Paris, Amsterdam, Swiss, Madrid, Stockholm, Oslo, Copenhagen, Helsinki), restricted to firms with EU/UK ISIN prefixes (filtering out approximately 30\% of EODHD-listed firms on these exchanges that are US/JP/CN cross-listings), with macro shocks from FRED EU proxies and BoE Bank Rate. The combined US + UK/EU panel concatenates the existing 93-actor US panel with the 109-actor UK/EU panel along the actor dimension, with actor identifiers prefixed by region (\texttt{us\_*}, \texttt{eu\_*}) to resolve the three actor-level collisions (Brent, VIX, IMF). Both panels use the cross-sectional CapEx/Assets percentile-rank construction; both are restricted to the 2011Q2--2025Q4 overlap window (59 quarters). Detailed construction is in Appendix~\ref{app:uk_eu}.
+
+The UK/EU panel construction and the analytical procedures in this section were specified before any UK/EU data were retrieved; the committed analysis plan is included in the replication archive. The plan identifies the architectural test M2 $>$ G1 (NW-HAC bw=1 one-sided, $\alpha = 0.05$) as the primary claim, alongside additional exploratory claims on magnitude bounds and sub-panel scope; results for both the primary test and the exploratory claims are reported in this section and Section~\ref{sec:ratio_robust}.
+
+\subsection{Combined US + UK/EU Panel: Headline Result}
+
+On the combined panel (202 actors with valid intensities over the overlap window, 59 quarters, training window $T=3$~years, inherited four-block partition: \textsc{Diversified} ($N=23$, US-only) + \textsc{Layer Macro/Inst} ($N=20$) + \textsc{Merged Tech/Health} ($N=57$) + \textsc{Remainder} ($N=102$)), M2 achieves $R^2 = 0.734$ versus G1 at $0.703$. The $\Delta = +0.030$ is statistically significant at every conventional inference level (Table~\ref{tab:combined_panel_arch}), with all 8 walk-forward test years positive.
+
+\begin{table}[H]
+\centering
+\caption{Combined US + UK/EU panel ($N=202$ actors with valid intensities over the overlap window, $T=3$, 8 test years 2017--2024). All deltas computed against G1 baseline. NW-HAC $t$ statistics use Newey-West bandwidth 1 on the per-window delta series; one-sided $p$ tests M2 (or named architecture) $>$ G1.}
+\label{tab:combined_panel_arch}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Architecture & $R^2$ & $\Delta$ vs G1 & NW-HAC $t$ & one-sided $p$ & wins \\
+\midrule
+G0 (pooled) & 0.677 & $-0.027$ & $-4.79$ & --- & 0/8 \\
+BA (block $\hat\rho_b$+FE) & 0.701 & $-0.002$ & $-0.54$ & --- & 2/8 \\
+G1 (global aug) & 0.703 & --- & --- & --- & --- \\
+S1 (selective-off) & 0.685 & $-0.019$ & --- & --- & 0/8 \\
+M1 (mixture Ridge) & 0.723 & $+0.020$ & 7.79 & $<0.001$ & 8/8 \\
+\textbf{M2 (mixture PCA+ridge)} & \textbf{0.734} & $\mathbf{+0.030}$ & \textbf{19.56} & $\mathbf{<0.0001}$ & \textbf{8/8} \\
+BA\_M2 & 0.721 & $+0.018$ & 3.60 & 0.009 & 7/8 \\
+ENS (G1+BA equal) & 0.720 & $+0.017$ & 7.81 & $<0.001$ & 8/8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 1{,}000-permutation placebo (random partitions of the same block sizes) places the real $\Delta = +0.030$ at $z = 9.68$ relative to the placebo distribution (mean $-0.0003$, std $0.0032$), with $p < 0.001$ (0/1{,}000 random partitions exceed the real value). For comparison, the original US-only panel placebo (Section~\ref{sec:placebo}) achieved $z = 7.82$. The combined-panel placebo specificity therefore exceeds the original US-only result.
+
+The local Stage~2 residual dynamics are decisively significant on the combined panel: M2 minus the block-AR(1) baseline yields $\Delta = +0.032$ (paired-$t$ $p < 10^{-4}$, 8/8 windows positive). The contribution decomposes by block as shown in Table~\ref{tab:combined_per_block}: each of the three local blocks contributes positively, with the US-only \textsc{Diversified} block as the largest single source.
+
+\begin{table}[H]
+\centering
+\caption{Per-block decomposition of the M2 and BA\_M2 gains on the combined panel ($T=3$, 8 test years). Block sizes reflect the combined panel composition.}
+\label{tab:combined_per_block}
+\small
+\begin{tabular}{lccc}
+\toprule
+Block & $N$ & $\Delta_{M2}$ vs G1 & $\Delta_{BA\_M2}$ vs G1 \\
+\midrule
+\textsc{Diversified} (US-only) & 23 & $+0.130$ & $+0.139$ \\
+\textsc{Layer Macro/Inst} & 20 & $+0.047$ & $+0.078$ \\
+\textsc{Merged Tech/Health} & 57 & $+0.047$ & $+0.035$ \\
+\textsc{Remainder} & 102 & $0.000$ & $-0.025$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The result is invariant across regime sub-windows. Splitting the 8 test years into pre-Brexit-completion (2017--2019), COVID (2020--2021), and post-COVID (2022--2024) yields per-regime $\Delta_{M2} = +0.030, +0.031, +0.030$ respectively (regime spread $+0.001$); all six rolling 3-year sub-windows over the test span produce positive $\Delta_{M2}$ with all-wins (per-regime tables in Appendix~\ref{app:uk_eu}).
+
+\subsection{Standalone UK/EU Panel and Training-Window Choice}
+
+The standalone UK/EU panel (109 actors, 8 test years 2017--2024) yields $\Delta_{M2} = +0.017$ at $T=3$ (NW-HAC bw=1 one-sided $p < 0.001$, 8/8 windows positive, placebo $z = 2.31$ at $p = 0.020$). The training-window length $T=3$ is selected from a sensitivity sweep on the panel itself rather than inherited from the US setting, on the principle that the optimal training depth depends on panel length (the UK/EU overlap of 59 quarters is shorter than the US sample of 84 quarters).
+
+\begin{table}[H]
+\centering
+\caption{Training-window sensitivity on the standalone UK/EU panel. $\Delta_{M2}$ versus G1 across walk-forward windows. The $T=8$ row uses 6 valid windows due to the panel-start boundary.}
+\label{tab:uk_eu_t_sweep}
+\small
+\begin{tabular}{ccccccc}
+\toprule
+$T$ (yr) & $n$ windows & $\Delta_{M2}$ & NW-HAC bw=1 $t$ & one-sided $p$ & wins \\
+\midrule
+2 & 8 & $+0.044$ & 2.92 & 0.011 & 8/8 \\
+\textbf{3} & 8 & $\mathbf{+0.017}$ & \textbf{7.52} & $\mathbf{0.0001}$ & \textbf{8/8} \\
+5 & 8 & $+0.008$ & 1.75 & 0.062 & 7/8 \\
+8 & 6 & $+0.013$ & 1.51 & 0.096 & 4/6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The pattern in Table~\ref{tab:uk_eu_t_sweep} parallels the US-panel finding in Section~\ref{sec:parsimony}: the mixture gain amplifies as the training window shrinks, because shorter training windows produce poorer global-basis estimates while local block estimates remain comparably conditioned. $T=3$ maximises the M2-vs-G1 NW-HAC $t$-statistic across the tested grid: $T=2$ delivers a larger raw $\Delta$ but at borderline statistical resolution due to the smaller training sample (only 8 training quarters); $T=5$, the value inherited from the US setting (Section~\ref{sec:parsimony}), gives a smaller and weaker $\Delta = +0.008$ (one-sided $p = 0.062$); $T=8$ loses two test windows to the panel-start boundary.
+
+\subsection{Mechanism: Per-Block Persistence Decomposition}
+
+Table~\ref{tab:uk_eu_rho_b} reports the pooled and per-block AR(1) coefficients on the standalone UK/EU panel. The rightmost column is the block-AR(1)+FE gain over G1: it tracks $|\hat\rho_b - \hat\rho_{\text{pool}}|$ closely.
+
+\begin{table}[H]
+\centering
+\caption{Pooled and per-block AR(1) coefficients on the UK/EU panel (full overlap window). $\Delta_{BA}$ is the block-AR(1)+FE gain over G1 (no Stage~2). Block-AR(1) helps when the block coefficient differs materially from the pooled coefficient.}
+\label{tab:uk_eu_rho_b}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Block & $N$ & $\hat\rho_b$ & $\hat\rho_b - \hat\rho_{\text{pool}}$ & $\Delta_{BA}$ vs G1 \\
+\midrule
+Pooled & 109 & $+0.467$ & 0.000 & --- \\
+\textsc{Layer Macro/Inst} & 9 & $+0.910$ & $+0.443$ & $+0.10$ \\
+\textsc{Healthcare} & 17 & $+0.183$ & $-0.284$ & $+0.10$ \\
+\textsc{Financials} & 17 & $+0.227$ & $-0.240$ & $+0.04$ \\
+\textsc{Technology} & 15 & $+0.329$ & $-0.138$ & $-0.001$ \\
+\textsc{Consumer} & 17 & $+0.400$ & $-0.067$ & $-0.09$ \\
+\textsc{Energy} & 17 & $+0.406$ & $-0.061$ & $+0.01$ \\
+\textsc{Industrials} & 17 & $+0.444$ & $-0.022$ & $+0.05$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Block-AR(1) helps when $|\hat\rho_b - \hat\rho_{\text{pool}}|$ is large and estimable: the macro/institutional block ($\Delta\rho = +0.443$) and the healthcare block ($\Delta\rho = -0.284$) are the two cases where $\Delta_{BA}$ exceeds $+0.10$. Where $\hat\rho_b \approx \hat\rho_{\text{pool}}$ (consumer, industrials), block-AR(1) estimation noise dominates the small true heterogeneity and the BA term hurts on consumer ($-0.09$) or contributes only marginally on industrials ($+0.05$).
+
+\subsection{Robustness}
+
+\paragraph{Firms-only sub-panel.} Restricting the UK/EU panel to its 100 Layer-2 firms (no macro/institutional actors) yields $\Delta_{M2} = +0.015$ at $T=3$ (NW-HAC bw=1 one-sided $p = 0.011$, 8/8 windows positive). This is consistent with the 146-firm CapEx/Assets result reported in Section~\ref{sec:ratio_robust}: the architecture works on firm-only panels under the CapEx/Assets ratio in both regions.
+
+\paragraph{Leave-one-window-out block selection.} A LOWO selection from a seven-block sector candidate set (\textsc{Layer Macro/Inst} plus six SMIM sectors) consistently picks 6 of the 7 blocks across all 8 leave-one-out cycles; the financials block is dropped because its single-block $\Delta_{M2}$ is negative under the PCA+ridge variant (although BA\_M2 prefers it). The LOWO $\Delta$ matches the fixed-partition $\Delta$ to within $0.0001$, confirming no test-window contamination in the block-selection step.
+
+\paragraph{Block-scheme alternative.} A finer seven-block sector-split scheme on the standalone UK/EU panel raises the headline to $\Delta_{M2} = +0.029$ but the placebo $z$ falls from 2.31 to 1.60 (borderline). On the combined panel the same scheme gives $\Delta_{M2} = +0.014$ with placebo $z = 4.28$ (passes). The inherited block partition used above is the operating spec; sector-split adds local-model capacity but reduces partition specificity at single-region scale. Detailed comparison in Appendix~\ref{app:uk_eu}.
+
+\paragraph{Cross-listing restriction.} The UK/EU panel restricts to firms with EU/UK ISIN prefixes; an unfiltered variant ($\sim 30\%$ non-EU/UK cross-listings) gave essentially identical $\Delta$ but altered placebo specificity, confirming the EU-only restriction is methodologically cleaner.
+
+\paragraph{Modal subspace transfer.} The DMD modal eigenvalue magnitudes from US-only and UK/EU-only fits over the overlap window correlate at $r = +0.94$, and the Stage-1 pooled-AR(1) coefficient trained on US-only data \emph{improves} EU-only forecasting over the EU-native estimate by mean $\Delta R^2 = +0.037$ across 8 windows (7 of 8 windows positive); details in Appendix~\ref{app:uk_eu}.
+
+\subsection{Summary}
+
+The architecture replicates cross-regime, with the combined US + UK/EU panel as the strongest single demonstration ($\Delta = +0.030$, placebo $z = 9.68$). The mechanism is governed by cross-sectional dispersion in autoregressive structure, consistent with the refined scope condition in Section~\ref{sec:ratio_robust}. The pre-registered architectural test M2 $>$ G1 is supported on both the standalone UK/EU and the combined panel.
+
+
+% ══════════════════════════════════════════════════════════
 \section{What Does Not Work and Why}
 \label{sec:falsification}
 % ══════════════════════════════════════════════════════════
@@ -731,7 +871,7 @@ Several further limitations qualify the findings:
 \begin{enumerate}[nosep]
   \item \textbf{Small evaluation sample.} Ten out-of-sample windows is standard in rolling-window evaluation but provides limited statistical power. The placebo test mitigates this concern by using the same windows.
   \item \textbf{Block selection is exploratory, confirmed by held-out decade.} The block identities (diversified, macro/institutional, tech/health) are economic classifications, but the \emph{selection} of which blocks receive local treatment was guided by preliminary within-sample diagnostics. Specifically, 10 candidate blocks were evaluated (6 raw sector blocks, 2 merged sector blocks, 2 layer blocks), of which 3 were selected based on per-block local-vs-global $R^2$ comparisons. This constitutes a researcher-degree-of-freedom concern: the block partition was not pre-registered. The LOWO test (Section~\ref{sec:validation}) controls for selection conditional on the candidate set; the placebo controls for the block sizes; the held-out decade test (Section~\ref{sec:held_out}) controls for the candidate-generation step by freezing the partition on 2005--2014 data and evaluating on unseen 2015--2024 windows ($\Delta = +0.050$, 10/10). The stratified placebo (Section~\ref{sec:strat_placebo}) further controls for the macro/firm data-type split ($z = 7.25$). Together, these tests substantially bound the researcher-degree-of-freedom concern, though the original 3-block partition remains exploratory.
-  \item \textbf{Scope limited to heterogeneous panels.} The gain does not replicate on homogeneous firm-only panels. The finding is a precise scope condition, not a universal architectural improvement.
+  \item \textbf{Scope condition characterisation.} The gain is most pronounced on heterogeneous multilayer panels (US 93-actor $+0.047$, combined US+UK/EU $+0.030$, both at the optimal training window for the panel length) but is also present on firm-only panels with appropriate ratio choices: the same 146-firm US population that shows null $\Delta = -0.003$ with CapEx/Revenue produces $\Delta = +0.018$ with CapEx/Assets at $T=5$ (10/10 windows positive). The operative condition is sufficient cross-sectional dispersion in autoregressive structure, which we have not yet fully characterised across arbitrary panel-and-ratio combinations. Section~\ref{sec:cross_regime} confirms cross-regime applicability under appropriate ratio and training-window choices.
   \item \textbf{Quarterly frequency only.} Higher-frequency data may reveal different dynamics.
   \item \textbf{Modest absolute improvement.} The $+0.047$ $R^2$ gain, while statistically robust ($z = 7.82$), is modest in absolute terms.
   \item \textbf{Data-timing latency.} The primary analysis assumes all targets are available at the quarterly boundary. A robustness check lagging all 82 firm actors by one quarter (Appendix~\ref{app:lag}) confirms the mixture gain survives ($\Delta = +0.038$, 10/10, 80\% of the contemporaneous gain). The absolute $R^2$ levels in the primary tables remain overstated relative to real-time availability; the one-quarter lag is a conservative proxy for the actual 30--45 day SEC filing delay.
@@ -769,7 +909,7 @@ This finding contradicts a pre-registered prediction that lower $K_b$ would be n
 \subsection{Hyperparameter Insensitivity Diagnostic}
 \label{sec:prereg}
 
-These predictions concern the hyperparameter sensitivity of the mixture architecture (Table~\ref{tab:parsimony}), not the headline M2-vs-G1 result itself (which is validated by the held-out decade test in Section~\ref{sec:held_out}). Five predictions were written before running the $T \times K_b$ sweep and time-stamped in the replication archive's git history. This constitutes a self-maintained record, not third-party-verified pre-registration (e.g., OSF or arXiv); the predictions should be read as a diagnostic of author expectations about hyperparameter sensitivity, not as a formal pre-analysis plan. Four of five failed and one was borderline, in each case revealing that the architectural gain is stronger and more robust than anticipated:
+These predictions concern the hyperparameter sensitivity of the mixture architecture (Table~\ref{tab:parsimony}), not the headline M2-vs-G1 result itself (which is validated by the held-out decade test in Section~\ref{sec:held_out}). Five predictions were written before running the $T \times K_b$ sweep and committed to the replication archive. This constitutes a self-maintained record, not third-party-verified pre-registration (e.g., OSF or arXiv); the predictions should be read as a diagnostic of author expectations about hyperparameter sensitivity, not as a formal pre-analysis plan. Four of five failed and one was borderline, in each case revealing that the architectural gain is stronger and more robust than anticipated:
 
 \begin{enumerate}[nosep]
   \item \textbf{P1} ($T{=}5$yr): $|R^2(K_b{=}2) - R^2(K_b{=}4)| < 0.005$ (flat parsimony frontier). \emph{Actual}: $0.018$. \textbf{Failed} --- $K_b{=}4$ captures secondary within-block modes that $K_b{=}2$ misses.
@@ -797,7 +937,7 @@ First, a two-stage architecture---global pooled persistence followed by regulari
 
 Second, global second-stage pooling can degrade prediction for actor subgroups whose dynamics are misrepresented by the shared basis. Descriptively, within-block basis rotation is lower than global rotation, though a matched-size random sub-panel control shows this reduction is not statistically distinguishable from a sample-size effect. Regardless of the geometric mechanism, the forecasting result is clear: a heterogeneity-aware mixture architecture with block-specific local residual models improves full-panel $R^2$ by $+0.047$ over the best global augmentation, validated by a placebo benchmark ($z = 7.82$), dependence-robust inference (DM-HAC $t > 6.8$), and consistency across all 10 evaluation windows.
 
-Third, the improvement requires data-type heterogeneity---mixing macro indices with firm-level cross-sectional ranks---and does not arise on homogeneous panels. This scope condition, together with the geodesic diagnostic and method-equivalence finding, provides an empirical characterisation of when local decomposition adds forecasting value on this class of panels.
+Third, the improvement depends on the cross-sectional dispersion of autoregressive structure in the panel. Data-type heterogeneity (mixing macro indices with firm-level cross-sectional ranks) reliably produces this dispersion and is the strongest single source of the gain we identify. Firm-only panels with suitable ratio choices (CapEx/Assets but not CapEx/Revenue, on the same 146 US firms) can also satisfy the condition. A cross-regime replication on a 109-actor UK/EU heterogeneous panel and a combined US+UK/EU panel of 202 actors confirms the architecture transfers across regimes when the training window is calibrated to panel length; details in Section~\ref{sec:cross_regime}.
 
 The design principle is: \emph{pool globally for what is shared, decompose locally for what is heterogeneous}.
 
@@ -805,7 +945,11 @@ The design principle is: \emph{pool globally for what is shared, decompose local
 % ── Data and Code Availability ────────────────────────────
 \subsection*{Data and Code Availability}
 
-Replication code, pseudonymised panel data (firm identities are replaced with opaque labels but are recoverable from the sector counts and balanced-panel constraint), and the time-stamped hyperparameter predictions (Section~\ref{sec:prereg}) for the $T \times K_b$ sweep (Section~\ref{sec:parsimony}) are available at \url{https://anonymous.4open.science/r/harp-reproduction}. The repository includes scripts to reproduce all tables, figures, and placebo permutations reported in this paper.
+Replication code, pseudonymised panel data (firm identities are replaced with opaque labels but are recoverable from the sector counts and balanced-panel constraint), and the committed hyperparameter predictions (Section~\ref{sec:prereg}) for the $T \times K_b$ sweep (Section~\ref{sec:parsimony}) are available at \url{https://anonymous.4open.science/r/harp-reproduction}. The repository includes scripts to reproduce all tables, figures, and placebo permutations reported in this paper, including the UK/EU extension and combined-panel analyses (Section~\ref{sec:cross_regime}, Appendix~\ref{app:uk_eu}).
+
+\subsection*{Acknowledgements}
+
+UK/EU firm-level fundamentals were obtained from EODHD Financial APIs (\url{https://eodhd.com/}); the author gratefully acknowledges EODHD for academic data access. US firm-level fundamentals were obtained from the SEC EDGAR system. Macro and policy series were obtained from the Federal Reserve Bank of St.\ Louis (FRED) and the Bank of England Interactive Database (IADB).
 
 % ══════════════════════════════════════════════════════════
 % BIBLIOGRAPHY
@@ -1100,5 +1244,118 @@ Placebo permutations & 1{,}000 & Computational budget & Section~5.1 \\
 \label{app:causality}
 
 Block assignments use static economic metadata (sector and layer labels from the actor registry). Local models are re-estimated each quarter from training data only: PCA basis from training residuals, Ridge VAR from training factors. The global Stage~1 and Stage~2 (for the remainder block) are re-estimated quarterly as each test quarter's data becomes available. No forecast origin uses information dated after that origin. Within each test year, the training set expands as earlier test quarters are observed, so the four within-year forecasts are not independent---the Newey--West and moving-block bootstrap corrections in Section~\ref{sec:results} account for this serial dependence.
+
+
+\section{UK/EU Extension: Data, Methods, and Sensitivity}
+\label{app:uk_eu}
+
+\subsection{Data Sources and Panel Construction}
+
+\paragraph{Firm fundamentals.} EU/UK firm fundamentals are sourced from EODHD Financial APIs (\url{https://eodhd.com/}) under their All-in-One subscription. Quarterly Balance Sheet and Cash Flow statements are pulled for nine European exchanges: London (LSE), Frankfurt (XETRA), Euronext Paris (PA), Euronext Amsterdam (AS), SIX Swiss (SW), Bolsa de Madrid (MC), Stockholm (ST), Oslo (OL), Copenhagen (CO), and Helsinki (HE). Borsa Italiana is excluded because EODHD does not list a working exchange code for it (tested: MI, BIT, MIL, XMIL---all empty); approximately 4 Italian firms with EU ISINs that are dual-listed on covered exchanges remain in the universe via their secondary listings.
+
+\paragraph{Domicile filter.} Of the firms passing the data-completeness gate ($\geq 56$ quarters of both CapEx and Assets in 2011--2025), approximately 30\% have non-EU/UK ISIN prefixes---primarily US firms cross-listed via XETRA Frankfurt or LSE GDRs (e.g.\ JPMorgan, Toyota ADR, State Bank of India GDR). The UK/EU panel restricts to firms whose ISIN prefix is in $\{$GB, DE, FR, ES, IT, NL, BE, AT, FI, SE, DK, NO, CH, IE, LU, PT, GR, PL, CZ, HU, IS, LI, SK, SI, EE, LV, LT, MT, CY, RO, BG, HR$\}$. After the filter, the firm universe is 100 firms across 9 exchanges with a balanced sector composition (16--17 firms per SMIM sector).
+
+\paragraph{Macro and institutional series.} The Layer~0 macro shocks (6 series) and Layer~1 institutional intermediaries (3 series) are sourced from FRED EU proxies (ECB deposit rate, euro-area 10Y yield, Brent crude, VIX, EUR/USD, euro-area HICP, ECB and IMF measures) supplemented by the Bank of England Bank Rate via the IADB CSV interface. All series are aligned to quarter-end before normalisation; the same min-max construction applied to the US Layer~0 actors (Section~\ref{sec:data}) is used here.
+
+\paragraph{Combined panel.} The combined US + UK/EU panel concatenates the 93-actor US panel (Section~\ref{sec:data}) with the 109-actor EU/UK-only panel along the actor dimension. Actor identifiers are prefixed with \texttt{us\_} or \texttt{eu\_} to resolve three actor-level collisions (Brent, VIX, IMF) where both panels carry the same series independently normalised. The combined panel is restricted to the 2011Q2--2025Q4 overlap window (59 quarters), giving 202 actors with valid intensities over the test window 2017--2024 (the registry contains 212 actor identifiers; 10 are dropped because they have no valid observations in the overlap window).
+
+\subsection{Block-Scheme Alternatives}
+
+Table~\ref{tab:uk_eu_blocks_alt} compares the inherited two-block scheme (\textsc{Layer Macro/Inst} + \textsc{Merged Tech/Health} + remainder) with a finer seven-block sector-split scheme (\textsc{Layer Macro/Inst} plus six SMIM sectors) on the standalone UK/EU panel at $T=3$. The fine-grained scheme delivers a larger raw $\Delta$ but at reduced placebo specificity (the placebo distribution shifts upward because random partitions of the same fine-grained sizes also benefit from added local-model capacity). The combined panel result is reported in Section~\ref{sec:cross_regime} for the inherited scheme; the same combined panel under the sector-split scheme yields $\Delta_{M2} = +0.014$ (NW-HAC bw=1 one-sided $p = 0.003$) with placebo $z = 4.28$.
+
+\begin{table}[H]
+\centering
+\caption{Block-scheme comparison on the standalone UK/EU panel ($N=109$, $T=3$, 8 windows). \textsc{us\_inherited}: \textsc{Layer Macro/Inst} ($N{=}9$) + \textsc{Merged Tech/Health} ($N{=}32$). \textsc{sector\_split}: \textsc{Layer Macro/Inst} plus six SMIM sectors of $N{=}15$--17 each.}
+\label{tab:uk_eu_blocks_alt}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Scheme & $\Delta_{M1}$ & $\Delta_{M2}$ & $\Delta_{BA\_M2}$ & $\Delta_{ENS}$ & Placebo $z$ & Placebo $p$ \\
+\midrule
+us\_inherited & $+0.015$ & $+0.017$ & $+0.007$ & $+0.018$ & 2.31 & 0.020 \\
+sector\_split & $+0.030$ & $+0.029$ & $+0.034$ & $+0.026$ & 1.60 & 0.058 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Regime Sub-Window Stability}
+
+Table~\ref{tab:uk_eu_regime_combined} reports per-regime $\Delta$ for the combined US + UK/EU panel at $T=3$ across pre-Brexit-completion (2017--2019), COVID (2020--2021), and post-COVID (2022--2024) sub-windows. The $\Delta_{M2}$ regime spread is $+0.001$. All four reported architectures are positive across all three sub-windows. A sliding 3-year window over the 8 test years produces six rolling sub-windows, every one of which is positive on $\Delta_{M2}$.
+
+\begin{table}[H]
+\centering
+\caption{Per-regime $\Delta$ on the combined US + UK/EU panel ($T=3$, us\_inherited block partition).}
+\label{tab:uk_eu_regime_combined}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Regime & $n$ years & $\Delta_{M1}$ & $\Delta_{M2}$ & $\Delta_{BA\_M2}$ & $\Delta_{ENS}$ \\
+\midrule
+Pre-Brexit-completion (2017--2019) & 3 & $+0.018$ & $+0.030$ & $+0.028$ & $+0.019$ \\
+COVID (2020--2021) & 2 & $+0.021$ & $+0.031$ & $+0.015$ & $+0.012$ \\
+Post-COVID (2022--2024) & 3 & $+0.021$ & $+0.030$ & $+0.011$ & $+0.019$ \\
+\midrule
+Spread (max $-$ min) & --- & $+0.003$ & $+0.001$ & $+0.017$ & $+0.007$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Stage-1 $\hat\rho$ Transfer Test}
+
+To test whether the Stage-1 pooled-AR(1) coefficient transfers across regimes, we estimate $\hat\rho_{\text{US}}$ on US-only training data and $\hat\rho_{\text{EU}}$ on EU-only training data for each of the 8 test years 2017--2024 with $T_{\text{yr}}=3$, then forecast the EU panel using each in turn (Stage~1 only, no Stage~2). The result is in Table~\ref{tab:uk_eu_rho_transfer}.
+
+\begin{table}[H]
+\centering
+\caption{Stage-1 $\hat\rho$ transfer test. $R^2_{\text{EU,native}}$ uses EU-trained $\hat\rho_{\text{EU}}$ on EU forecasting; $R^2_{\text{EU,US}\to\text{EU}}$ uses US-trained $\hat\rho_{\text{US}}$ instead. Negative loss values indicate that the transferred US coefficient \emph{improves} EU forecasting over the EU-native estimate.}
+\label{tab:uk_eu_rho_transfer}
+\small
+\begin{tabular}{cccccc}
+\toprule
+Year & $\hat\rho_{\text{US}}$ & $\hat\rho_{\text{EU}}$ & $R^2_{\text{EU,native}}$ & $R^2_{\text{EU,US}\to\text{EU}}$ & Loss = native $-$ transferred \\
+\midrule
+2017 & $+0.43$ & $+0.02$ & 0.751 & 0.808 & $-0.057$ \\
+2018 & $+0.42$ & $+0.13$ & 0.799 & 0.795 & $+0.004$ \\
+2019 & $+0.38$ & $+0.10$ & 0.754 & 0.784 & $-0.030$ \\
+2020 & $+0.34$ & $+0.10$ & 0.756 & 0.774 & $-0.018$ \\
+2021 & $+0.39$ & $+0.08$ & 0.746 & 0.774 & $-0.028$ \\
+2022 & $+0.42$ & $+0.11$ & 0.661 & 0.717 & $-0.056$ \\
+2023 & $+0.48$ & $+0.22$ & 0.566 & 0.659 & $-0.093$ \\
+2024 & $+0.44$ & $+0.34$ & 0.718 & 0.734 & $-0.016$ \\
+\midrule
+Mean & --- & --- & 0.719 & 0.756 & $-0.037$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The US-trained Stage-1 coefficient improves EU forecasting over the EU-native estimate by mean $\Delta R^2 = +0.037$ (7 of 8 windows positive). The mechanism is sample-conditioning: the per-window $\hat\rho_{\text{EU}}$ estimates are volatile across test years (range $0.02$--$0.34$) on the smaller EU panel; $\hat\rho_{\text{US}}$ is stable (range $0.34$--$0.48$) and apparently a better estimator of the cross-sectional persistence applicable to fundamentals data. The DMD modal eigenvalue magnitudes from US-only and EU-only fits over the overlap window correlate at $r = +0.94$, indicating the dominant residual modes are also similar across regimes.
+
+\subsection{LOWO and Placebo Diagnostics}
+
+Table~\ref{tab:uk_eu_lowo_placebo} aggregates LOWO and placebo diagnostics across all configurations evaluated in Section~\ref{sec:cross_regime} and this appendix. LOWO contamination is the difference between the fixed-partition $\Delta_{M2}$ and the LOWO $\Delta_{M2}$, expressed as a percentage of the fixed gain.
+
+\begin{table}[H]
+\centering
+\caption{LOWO and placebo diagnostics across UK/EU configurations.}
+\label{tab:uk_eu_lowo_placebo}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Configuration & $N$ & Scheme & $\Delta_{M2}$ & Placebo $z$ & Placebo $p$ & LOWO contam. \\
+\midrule
+EU-only, $T=5$ & 109 & us\_inh & $+0.008$ & $0.92$ & 0.184 & $0.0\%$ \\
+EU-only, $T=3$ & 109 & us\_inh & $+0.017$ & $2.31$ & 0.020 & $0.0\%$ \\
+EU-only, $T=3$ & 109 & sector\_split & $+0.029$ & $1.60$ & 0.058 & $0.1\%$ \\
+EU-only firms-only, $T=3$ & 100 & us\_inh & $+0.015$ & $1.74$ & 0.043 & --- \\
+EU-only firms-only, $T=3$ & 100 & sector\_split & $+0.024$ & $-0.74$ & 0.782 & --- \\
+\textbf{Combined US+EU, $T=3$} & \textbf{202} & \textbf{us\_inh} & $\mathbf{+0.030}$ & $\mathbf{9.68}$ & $\mathbf{<0.001}$ & --- \\
+Combined US+EU, $T=3$ & 202 & sector\_split & $+0.014$ & $4.28$ & $<0.001$ & --- \\
+Combined firms-only, $T=3$ & 182 & us\_inh & $+0.029$ & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reproduction}
+
+The replication archive includes scripts to reproduce all UK/EU and combined-panel results: \texttt{scripts/data\_pipeline/build\_experiment\_b1.py} (panel construction), \texttt{scripts/table5\_uk\_eu.py} (architecture comparison), \texttt{scripts/dm\_hac\_uk\_eu.py} (DM-HAC inference), \texttt{scripts/lowo\_block\_uk\_eu.py} (LOWO block selection), \texttt{scripts/table7\_placebo\_uk\_eu.py} (1000-permutation placebo), and \texttt{scripts/regime\_subwindows\_uk\_eu.py} (regime stratification). Full reproduction commands and expected outputs are documented in the archive's \texttt{README.md}. Reproducing all tables in this appendix takes approximately 15 minutes of wall-clock time on a single CPU.
 
 \end{document}

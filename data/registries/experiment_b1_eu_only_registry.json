@@ -1,0 +1,1397 @@
+{
+  "actors": [
+    {
+      "actor_id": "shock_brent_crude",
+      "name": "Brent Crude Oil",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "EU",
+      "sector": "energy",
+      "external_ids": {
+        "fred_series": "shock_brent"
+      }
+    },
+    {
+      "actor_id": "shock_ecb_rate",
+      "name": "ECB Deposit Facility Rate",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "EU",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "shock_ecb_rate"
+      }
+    },
+    {
+      "actor_id": "shock_vix",
+      "name": "CBOE VIX",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "EU",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "shock_vix"
+      }
+    },
+    {
+      "actor_id": "shock_eu_10y_yield",
+      "name": "Euro Area 10Y Yield",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "EU",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "shock_eu_10y_yield"
+      }
+    },
+    {
+      "actor_id": "shock_eur_usd",
+      "name": "EUR/USD Exchange Rate",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "EU",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "shock_eur_usd"
+      }
+    },
+    {
+      "actor_id": "shock_eu_hicp",
+      "name": "Euro Area HICP Inflation",
+      "actor_type": "global_shock",
+      "layer": 0,
+      "geography": "EU",
+      "sector": "macro",
+      "external_ids": {
+        "fred_series": "shock_eu_hicp"
+      }
+    },
+    {
+      "actor_id": "inst_ecb",
+      "name": "ECB (policy stance)",
+      "actor_type": "central_bank",
+      "layer": 1,
+      "geography": "EU",
+      "sector": "macro",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "inst_boe",
+      "name": "Bank of England (policy stance)",
+      "actor_type": "central_bank",
+      "layer": 1,
+      "geography": "UK",
+      "sector": "macro",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "inst_imf",
+      "name": "IMF / EU GDP Growth",
+      "actor_type": "intl_org",
+      "layer": 1,
+      "geography": "GLOBAL",
+      "sector": "macro",
+      "external_ids": {}
+    },
+    {
+      "actor_id": "SEB-A.ST",
+      "name": "Skandinaviska Enskilda Banken AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "SEB-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000148884"
+      }
+    },
+    {
+      "actor_id": "DNB.OL",
+      "name": "DnB ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "DNB",
+        "eodhd_exchange": "OL",
+        "isin": "NO0010161896"
+      }
+    },
+    {
+      "actor_id": "SHB-A.ST",
+      "name": "Svenska Handelsbanken AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "SHB-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0007100599"
+      }
+    },
+    {
+      "actor_id": "SHB-B.ST",
+      "name": "Svenska Handelsbanken AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "SHB-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0007100607"
+      }
+    },
+    {
+      "actor_id": "DANSKE.CO",
+      "name": "Danske Bank A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "DANSKE",
+        "eodhd_exchange": "CO",
+        "isin": "DK0010274414"
+      }
+    },
+    {
+      "actor_id": "SWED-A.ST",
+      "name": "Swedbank AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "SWED-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000242455"
+      }
+    },
+    {
+      "actor_id": "HSBA.LSE",
+      "name": "HSBC Holdings PLC",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "HSBA",
+        "eodhd_exchange": "LSE",
+        "isin": "GB0005405286"
+      }
+    },
+    {
+      "actor_id": "BNP.XETRA",
+      "name": "BNP Paribas SA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "BNP",
+        "eodhd_exchange": "XETRA",
+        "isin": "FR0000131104"
+      }
+    },
+    {
+      "actor_id": "ACA.PA",
+      "name": "Credit Agricole SA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "FR",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "ACA",
+        "eodhd_exchange": "PA",
+        "isin": "FR0000045072"
+      }
+    },
+    {
+      "actor_id": "SAN.MC",
+      "name": "Banco Santander S.A.",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "ES",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "SAN",
+        "eodhd_exchange": "MC",
+        "isin": "ES0113900J37"
+      }
+    },
+    {
+      "actor_id": "UBSG.SW",
+      "name": "UBS Group AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "CH",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "UBSG",
+        "eodhd_exchange": "SW",
+        "isin": "CH0244767585"
+      }
+    },
+    {
+      "actor_id": "SGE.XETRA",
+      "name": "Soci\u00e9t\u00e9 G\u00e9n\u00e9rale Soci\u00e9t\u00e9 anonyme",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "SGE",
+        "eodhd_exchange": "XETRA",
+        "isin": "FR0000130809"
+      }
+    },
+    {
+      "actor_id": "BARC.LSE",
+      "name": "Barclays PLC",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "BARC",
+        "eodhd_exchange": "LSE",
+        "isin": "GB0031348658"
+      }
+    },
+    {
+      "actor_id": "DBK.XETRA",
+      "name": "Deutsche Bank Aktiengesellschaft",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "DBK",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0005140008"
+      }
+    },
+    {
+      "actor_id": "INGA.AS",
+      "name": "ING Groep NV",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NL",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "INGA",
+        "eodhd_exchange": "AS",
+        "isin": "NL0011821202"
+      }
+    },
+    {
+      "actor_id": "STB.OL",
+      "name": "Storebrand ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "STB",
+        "eodhd_exchange": "OL",
+        "isin": "NO0003053605"
+      }
+    },
+    {
+      "actor_id": "IES.XETRA",
+      "name": "Intesa Sanpaolo S.p.A",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "financials",
+      "external_ids": {
+        "eodhd_ticker": "IES",
+        "eodhd_exchange": "XETRA",
+        "isin": "IT0000072618"
+      }
+    },
+    {
+      "actor_id": "VOLV-B.ST",
+      "name": "AB Volvo (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "VOLV-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000115446"
+      }
+    },
+    {
+      "actor_id": "VOLV-A.ST",
+      "name": "AB Volvo (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "VOLV-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000115420"
+      }
+    },
+    {
+      "actor_id": "VOW3.XETRA",
+      "name": "Volkswagen AG VZO O.N.",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "VOW3",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0007664039"
+      }
+    },
+    {
+      "actor_id": "VOW.XETRA",
+      "name": "Volkswagen AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "VOW",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0007664005"
+      }
+    },
+    {
+      "actor_id": "SHEL.LSE",
+      "name": "Shell plc",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "SHEL",
+        "eodhd_exchange": "LSE",
+        "isin": "GB00BP6MXD84"
+      }
+    },
+    {
+      "actor_id": "ERCG.XETRA",
+      "name": "Telefonaktiebolaget LM Ericsson (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "ERCG",
+        "eodhd_exchange": "XETRA",
+        "isin": "SE0000108649"
+      }
+    },
+    {
+      "actor_id": "ERCB.XETRA",
+      "name": "Telefonaktiebolaget LM Ericsson (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "ERCB",
+        "eodhd_exchange": "XETRA",
+        "isin": "SE0000108656"
+      }
+    },
+    {
+      "actor_id": "NOVO-B.CO",
+      "name": "Novo Nordisk A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "NOVO-B",
+        "eodhd_exchange": "CO",
+        "isin": "DK0062498333"
+      }
+    },
+    {
+      "actor_id": "DTE.XETRA",
+      "name": "Deutsche Telekom AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "DTE",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0005557508"
+      }
+    },
+    {
+      "actor_id": "ORSTED.CO",
+      "name": "Orsted A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "ORSTED",
+        "eodhd_exchange": "CO",
+        "isin": "DK0060094928"
+      }
+    },
+    {
+      "actor_id": "TTE.PA",
+      "name": "TotalEnergies SE",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "FR",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "TTE",
+        "eodhd_exchange": "PA",
+        "isin": "FR0000120271"
+      }
+    },
+    {
+      "actor_id": "BP-A.LSE",
+      "name": "BP p.l.c",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "BP-A",
+        "eodhd_exchange": "LSE",
+        "isin": "GB0001385250"
+      }
+    },
+    {
+      "actor_id": "BP.LSE",
+      "name": "BP PLC",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "BP",
+        "eodhd_exchange": "LSE",
+        "isin": "GB0007980591"
+      }
+    },
+    {
+      "actor_id": "MBG.XETRA",
+      "name": "Mercedes-Benz Group AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "MBG",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0007100000"
+      }
+    },
+    {
+      "actor_id": "BMW.XETRA",
+      "name": "Bayerische Motoren Werke Aktiengesellschaft",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "BMW",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0005190003"
+      }
+    },
+    {
+      "actor_id": "BMW3.XETRA",
+      "name": "Bayerische Motoren Werke Aktiengesellschaft",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "BMW3",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0005190037"
+      }
+    },
+    {
+      "actor_id": "TEL.OL",
+      "name": "Telenor ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "TEL",
+        "eodhd_exchange": "OL",
+        "isin": "NO0010063308"
+      }
+    },
+    {
+      "actor_id": "LUND-B.ST",
+      "name": "L E Lundbergf\u00f6retagen AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "LUND-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000108847"
+      }
+    },
+    {
+      "actor_id": "TELIA1.HE",
+      "name": "Telia Company AB",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "FI",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "TELIA1",
+        "eodhd_exchange": "HE",
+        "isin": "SE0000667925"
+      }
+    },
+    {
+      "actor_id": "NHY.OL",
+      "name": "Norsk Hydro ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "NHY",
+        "eodhd_exchange": "OL",
+        "isin": "NO0005052605"
+      }
+    },
+    {
+      "actor_id": "ASSA-B.ST",
+      "name": "ASSA ABLOY AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "ASSA-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0007100581"
+      }
+    },
+    {
+      "actor_id": "8TI.XETRA",
+      "name": "Stellantis NV",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "8TI",
+        "eodhd_exchange": "XETRA",
+        "isin": "NL00150001Q9"
+      }
+    },
+    {
+      "actor_id": "ATCO-B.ST",
+      "name": "Atlas Copco AB Series B",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "ATCO-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0017486897"
+      }
+    },
+    {
+      "actor_id": "ATCO-A.ST",
+      "name": "Atlas Copco AB Series A",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "ATCO-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0017486889"
+      }
+    },
+    {
+      "actor_id": "ENL.XETRA",
+      "name": "Enel SpA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "ENL",
+        "eodhd_exchange": "XETRA",
+        "isin": "IT0003128367"
+      }
+    },
+    {
+      "actor_id": "SAND.ST",
+      "name": "Sandvik AB",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SAND",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000667891"
+      }
+    },
+    {
+      "actor_id": "HM-B.ST",
+      "name": "H & M Hennes & Mauritz AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "HM-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000106270"
+      }
+    },
+    {
+      "actor_id": "SKA-B.ST",
+      "name": "Skanska AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SKA-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000113250"
+      }
+    },
+    {
+      "actor_id": "DSV.CO",
+      "name": "DSV Panalpina A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "DSV",
+        "eodhd_exchange": "CO",
+        "isin": "DK0060079531"
+      }
+    },
+    {
+      "actor_id": "IBE.MC",
+      "name": "Iberdrola S.A.",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "ES",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "IBE",
+        "eodhd_exchange": "MC",
+        "isin": "ES0144580Y14"
+      }
+    },
+    {
+      "actor_id": "SCA-B.ST",
+      "name": "Svenska Cellulosa Aktiebolaget SCA (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SCA-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000112724"
+      }
+    },
+    {
+      "actor_id": "SCA-A.ST",
+      "name": "Svenska Cellulosa Aktiebolaget SCA (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SCA-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000171886"
+      }
+    },
+    {
+      "actor_id": "ENI.XETRA",
+      "name": "Eni S.p.A.",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "ENI",
+        "eodhd_exchange": "XETRA",
+        "isin": "IT0003132476"
+      }
+    },
+    {
+      "actor_id": "SIE.XETRA",
+      "name": "Siemens Aktiengesellschaft",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SIE",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0007236101"
+      }
+    },
+    {
+      "actor_id": "EQNR.OL",
+      "name": "Equinor ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "EQNR",
+        "eodhd_exchange": "OL",
+        "isin": "NO0010096985"
+      }
+    },
+    {
+      "actor_id": "ELUX-A.ST",
+      "name": "AB Electrolux (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "ELUX-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0016589170"
+      }
+    },
+    {
+      "actor_id": "ELUX-B.ST",
+      "name": "AB Electrolux (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "ELUX-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0016589188"
+      }
+    },
+    {
+      "actor_id": "AIR.PA",
+      "name": "Airbus Group SE",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "FR",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "AIR",
+        "eodhd_exchange": "PA",
+        "isin": "NL0000235190"
+      }
+    },
+    {
+      "actor_id": "SECU-B.ST",
+      "name": "Securitas AB",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SECU-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000163594"
+      }
+    },
+    {
+      "actor_id": "BAYN.XETRA",
+      "name": "Bayer AG NA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "BAYN",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE000BAY0017"
+      }
+    },
+    {
+      "actor_id": "SKF-B.ST",
+      "name": "AB SKF (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SKF-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000108227"
+      }
+    },
+    {
+      "actor_id": "SKF-A.ST",
+      "name": "AB SKF (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "industrials",
+      "external_ids": {
+        "eodhd_ticker": "SKF-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000108201"
+      }
+    },
+    {
+      "actor_id": "EOAN.XETRA",
+      "name": "E.ON SE",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "EOAN",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE000ENAG999"
+      }
+    },
+    {
+      "actor_id": "CARL-B.CO",
+      "name": "Carlsberg A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "CARL-B",
+        "eodhd_exchange": "CO",
+        "isin": "DK0010181759"
+      }
+    },
+    {
+      "actor_id": "CARL-A.CO",
+      "name": "Carlsberg A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "CARL-A",
+        "eodhd_exchange": "CO",
+        "isin": "DK0010181676"
+      }
+    },
+    {
+      "actor_id": "TEF.MC",
+      "name": "Telefonica",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "ES",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "TEF",
+        "eodhd_exchange": "MC",
+        "isin": "ES0178430E18"
+      }
+    },
+    {
+      "actor_id": "RWE.XETRA",
+      "name": "RWE AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "RWE",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0007037129"
+      }
+    },
+    {
+      "actor_id": "AZN.LSE",
+      "name": "AstraZeneca PLC",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "AZN",
+        "eodhd_exchange": "LSE",
+        "isin": "GB0009895292"
+      }
+    },
+    {
+      "actor_id": "NOVN.SW",
+      "name": "Novartis AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "CH",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "NOVN",
+        "eodhd_exchange": "SW",
+        "isin": "CH0012005267"
+      }
+    },
+    {
+      "actor_id": "2M6.XETRA",
+      "name": "Medtronic PLC",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "2M6",
+        "eodhd_exchange": "XETRA",
+        "isin": "IE00BTN1Y115"
+      }
+    },
+    {
+      "actor_id": "ORK.OL",
+      "name": "Orkla ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "ORK",
+        "eodhd_exchange": "OL",
+        "isin": "NO0003733800"
+      }
+    },
+    {
+      "actor_id": "ULVR.LSE",
+      "name": "Unilever PLC",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "ULVR",
+        "eodhd_exchange": "LSE",
+        "isin": "GB00BVZK7T90"
+      }
+    },
+    {
+      "actor_id": "SOBI.ST",
+      "name": "Swedish Orphan Biovitrum AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "SOBI",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000872095"
+      }
+    },
+    {
+      "actor_id": "SAP.XETRA",
+      "name": "SAP SE",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "SAP",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0007164600"
+      }
+    },
+    {
+      "actor_id": "TEL2-A.ST",
+      "name": "Tele2 AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "TEL2-A",
+        "eodhd_exchange": "ST",
+        "isin": "SE0005190220"
+      }
+    },
+    {
+      "actor_id": "TEL2-B.ST",
+      "name": "Tele2 AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "TEL2-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0005190238"
+      }
+    },
+    {
+      "actor_id": "EBK.XETRA",
+      "name": "EnBW Energie Baden-W\u00fcrttemberg AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "EBK",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0005220008"
+      }
+    },
+    {
+      "actor_id": "PAH3.XETRA",
+      "name": "Porsche Automobil Holding SE",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "PAH3",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE000PAH0038"
+      }
+    },
+    {
+      "actor_id": "REP.XETRA",
+      "name": "Repsol S.A.",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "REP",
+        "eodhd_exchange": "XETRA",
+        "isin": "ES0173516115"
+      }
+    },
+    {
+      "actor_id": "GSK.LSE",
+      "name": "GSK plc",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "GB",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "GSK",
+        "eodhd_exchange": "LSE",
+        "isin": "GB00BN7SWP63"
+      }
+    },
+    {
+      "actor_id": "VEND.OL",
+      "name": "VEND MARKETPLACES ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "VEND",
+        "eodhd_exchange": "OL",
+        "isin": "NO0010736879"
+      }
+    },
+    {
+      "actor_id": "GETI-B.ST",
+      "name": "Getinge AB ser. B",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "GETI-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000202624"
+      }
+    },
+    {
+      "actor_id": "AUSS.OL",
+      "name": "Austevoll Seafood ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "AUSS",
+        "eodhd_exchange": "OL",
+        "isin": "NO0010073489"
+      }
+    },
+    {
+      "actor_id": "SALM.OL",
+      "name": "SalMar ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "SALM",
+        "eodhd_exchange": "OL",
+        "isin": "NO0010310956"
+      }
+    },
+    {
+      "actor_id": "OMV.XETRA",
+      "name": "OMV Aktiengesellschaft",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "OMV",
+        "eodhd_exchange": "XETRA",
+        "isin": "AT0000743059"
+      }
+    },
+    {
+      "actor_id": "AD.AS",
+      "name": "Koninklijke Ahold Delhaize NV",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NL",
+      "sector": "consumer",
+      "external_ids": {
+        "eodhd_ticker": "AD",
+        "eodhd_exchange": "AS",
+        "isin": "NL0011794037"
+      }
+    },
+    {
+      "actor_id": "MRK.XETRA",
+      "name": "Merck KGaA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "MRK",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0006599905"
+      }
+    },
+    {
+      "actor_id": "COLO-B.CO",
+      "name": "Coloplast A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "COLO-B",
+        "eodhd_exchange": "CO",
+        "isin": "DK0060448595"
+      }
+    },
+    {
+      "actor_id": "FRE.XETRA",
+      "name": "Fresenius SE & Co. KGaA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "FRE",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0005785604"
+      }
+    },
+    {
+      "actor_id": "ELE.MC",
+      "name": "Endesa SA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "ES",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "ELE",
+        "eodhd_exchange": "MC",
+        "isin": "ES0130670112"
+      }
+    },
+    {
+      "actor_id": "NOKIA.HE",
+      "name": "Nokia Oyj",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "FI",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "NOKIA",
+        "eodhd_exchange": "HE",
+        "isin": "FI0009000681"
+      }
+    },
+    {
+      "actor_id": "AKRBP.OL",
+      "name": "Aker BP ASA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "NO",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "AKRBP",
+        "eodhd_exchange": "OL",
+        "isin": "NO0010345853"
+      }
+    },
+    {
+      "actor_id": "VIV.PA",
+      "name": "Vivendi SA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "FR",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "VIV",
+        "eodhd_exchange": "PA",
+        "isin": "FR0000127771"
+      }
+    },
+    {
+      "actor_id": "ASME.XETRA",
+      "name": "ASML Holding NV",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "ASME",
+        "eodhd_exchange": "XETRA",
+        "isin": "NL0010273215"
+      }
+    },
+    {
+      "actor_id": "HLUN-B.CO",
+      "name": "H Lundbeck A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "HLUN-B",
+        "eodhd_exchange": "CO",
+        "isin": "DK0061804770"
+      }
+    },
+    {
+      "actor_id": "HLUN-A.CO",
+      "name": "H Lundbeck A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "HLUN-A",
+        "eodhd_exchange": "CO",
+        "isin": "DK0061804697"
+      }
+    },
+    {
+      "actor_id": "NTGY.MC",
+      "name": "Naturgy Energy Group SA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "ES",
+      "sector": "energy",
+      "external_ids": {
+        "eodhd_ticker": "NTGY",
+        "eodhd_exchange": "MC",
+        "isin": "ES0116870314"
+      }
+    },
+    {
+      "actor_id": "GMAB.CO",
+      "name": "Genmab A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "GMAB",
+        "eodhd_exchange": "CO",
+        "isin": "DK0010272202"
+      }
+    },
+    {
+      "actor_id": "FME.XETRA",
+      "name": "Fresenius Medical Care AG & Co. KGaA",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "FME",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0005785802"
+      }
+    },
+    {
+      "actor_id": "DEMANT.CO",
+      "name": "Demant A/S",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DK",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "DEMANT",
+        "eodhd_exchange": "CO",
+        "isin": "DK0060738599"
+      }
+    },
+    {
+      "actor_id": "EKTA-B.ST",
+      "name": "Elekta AB (publ)",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "SE",
+      "sector": "healthcare",
+      "external_ids": {
+        "eodhd_ticker": "EKTA-B",
+        "eodhd_exchange": "ST",
+        "isin": "SE0000163628"
+      }
+    },
+    {
+      "actor_id": "IFX.XETRA",
+      "name": "Infineon Technologies AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "DE",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "IFX",
+        "eodhd_exchange": "XETRA",
+        "isin": "DE0006231004"
+      }
+    },
+    {
+      "actor_id": "SCMN.SW",
+      "name": "Swisscom AG",
+      "actor_type": "sector_leader",
+      "layer": 2,
+      "geography": "CH",
+      "sector": "technology",
+      "external_ids": {
+        "eodhd_ticker": "SCMN",
+        "eodhd_exchange": "SW",
+        "isin": "CH0008742519"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "panel": "experiment_b1",
+  "n_placebo": 1000,
+  "test_years": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "real_block_sizes": [
+    0,
+    9,
+    32
+  ],
+  "nonempty_block_sizes_used": [
+    9,
+    32
+  ],
+  "real_mean_delta": 0.016985441626620024,
+  "placebo_mean": 0.009768963480998682,
+  "placebo_std": 0.003117975280596436,
+  "placebo_min": 0.0013148216436760785,
+  "placebo_max": 0.019758026080087726,
+  "placebo_p95": 0.015060207029996229,
+  "placebo_p99": 0.017670495325141988,
+  "placebo_p_value": 0.02,
+  "z_score": 2.314475740244132,
+  "verdict": "PASSED"
+}

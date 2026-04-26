@@ -13,3 +13,17 @@ results/metrics/*.parquet
 *.out
 *.bbl
 *.blg
+
+# Raw third-party data — not redistributable under EODHD ToS
+data/raw/eodhd/
+
+# Internal planning / working drafts (not part of the replication archive)
+PRACTICAL_APPLICABILITY.md
+UK_EU_PANEL_PLAN.md
+UK_EU_EXTENSION_STATUS.md
+JOURNAL_OPTIONS.md
+drafts/
+
+# Stray artefacts
+paper/img.png
+harp.zip

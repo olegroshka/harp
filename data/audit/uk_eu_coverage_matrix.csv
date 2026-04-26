@@ -1,0 +1,80 @@
+actor_id,layer,source,target_id,status,first_obs,last_obs,n_obs,n_quarters,coverage_pct,notes
+shock_euribor_3m,0,ecb_sdw,FM/B.U2.EUR.RT.MM.EURIBOR3MD_.HSTA,error,,,0,0,0.0,Euribor 3M [HTTP 404]
+shock_eur_yield_10y,0,ecb_sdw,FM/M.U2.EUR.4F.BB.U10Y.YLD,error,,,0,0,0.0,Euro 10Y yield [HTTP 404]
+shock_eur_twi,0,ecb_sdw,EXR/M.E5.EUR.EN00.A,error,,,0,0,0.0,Euro nominal effective exchange rate [HTTP 404]
+inst_ecb_assets,0,ecb_sdw,ILM/W.U2.C.L010000.U2.EUR,error,,,0,0,0.0,ECB consolidated balance sheet [HTTP 404]
+shock_fred_ecb_rate,0,fred,ECBDFR,ok,2010-01-01,2025-12-31,5844,64,100.0,ECB Deposit Facility Rate (FRED mirror)
+shock_fred_eu_rate_10y,0,fred,IRLTLT01EZM156N,ok,2010-01-01,2025-12-01,192,64,100.0,Euro area long-term interest rate 10Y
+shock_fred_eu_ipro,0,fred,EA19PRMNTO01GPSAM,partial,2010-01-01,2023-10-01,166,56,87.5,Euro area industrial production
+shock_fred_uk_rate,0,fred,INTGSTGBM193N,partial,2010-01-01,2016-08-01,80,27,42.2,UK 3-month interbank rate
+inst_boe_rate,0,boe_iadb,IUDBEDR,ok,2010-01-04,2025-12-31,4041,64,100.0,BoE Bank Rate
+SHEL,2,sec_edgar,0001306965,missing,,,0,0,0.0,Shell plc [capex=0 assets=39]
+BP,2,sec_edgar,0000313807,missing,,,0,0,0.0,BP plc [capex=0 assets=34]
+TTE,2,sec_edgar,0000879764,missing,,,0,0,0.0,TotalEnergies SE [capex=0 assets=59]
+AZN,2,sec_edgar,0000901832,partial,2015-12-31,2025-12-31,20,41,64.1,AstraZeneca plc
+NVS,2,sec_edgar,0001114448,partial,2016-12-31,2025-12-31,18,37,57.8,Novartis AG
+SAP,2,sec_edgar,0001000184,missing,,,0,0,0.0,SAP SE [capex=0 assets=18]
+ASML,2,sec_edgar,0000937966,partial,2010-12-31,2025-12-31,16,61,95.3,ASML Holding
+UL,2,sec_edgar,0000217410,partial,2016-12-31,2025-12-31,13,37,57.8,Unilever plc
+DEO,2,sec_edgar,0000835403,missing,,,0,0,0.0,Diageo plc [capex=0 assets=29]
+HSBC,2,sec_edgar,0001089113,partial,2015-12-31,2025-12-31,18,41,64.1,HSBC Holdings plc
+ASML,2,simfin,ASML,missing,,,0,0,0.0,ASML Holding (NL/Technology)
+SAP,2,simfin,SAP,error,,,0,0,0.0,SAP SE [HTTP 429]
+SHEL,2,simfin,SHEL,error,,,0,0,0.0,Shell plc [parse: 'list' object has no attribute 'get']
+BP,2,simfin,BP,error,,,0,0,0.0,BP plc [HTTP 429]
+TTE,2,simfin,TTE,error,,,0,0,0.0,TotalEnergies [parse: 'list' object has no attribute 'get']
+AZN,2,simfin,AZN,error,,,0,0,0.0,AstraZeneca [HTTP 429]
+NVS,2,simfin,NVS,error,,,0,0,0.0,Novartis [parse: 'list' object has no attribute 'get']
+ROG,2,simfin,ROG,error,,,0,0,0.0,Roche [HTTP 429]
+GSK,2,simfin,GSK,error,,,0,0,0.0,GSK plc [parse: 'list' object has no attribute 'get']
+SAN,2,simfin,SAN,error,,,0,0,0.0,Sanofi [HTTP 429]
+BAYN,2,simfin,BAYN,missing,,,0,0,0.0,Bayer AG (DE/Healthcare)
+NESN,2,simfin,NESN,error,,,0,0,0.0,Nestle [HTTP 429]
+ULVR,2,simfin,ULVR,missing,,,0,0,0.0,Unilever (GB/Consumer Staples)
+DGE,2,simfin,DGE,missing,,,0,0,0.0,Diageo (GB/Consumer Staples)
+OR,2,simfin,OR,error,,,0,0,0.0,L'Oreal [HTTP 429]
+MC,2,simfin,MC,error,,,0,0,0.0,LVMH [parse: 'list' object has no attribute 'get']
+HSBA,2,simfin,HSBA,missing,,,0,0,0.0,HSBC (GB/Financials)
+BARC,2,simfin,BARC,error,,,0,0,0.0,Barclays [HTTP 429]
+BNP,2,simfin,BNP,missing,,,0,0,0.0,BNP Paribas (FR/Financials)
+ALV,2,simfin,ALV,error,,,0,0,0.0,Allianz [HTTP 429]
+SIE,2,simfin,SIE,missing,,,0,0,0.0,Siemens (DE/Industrials)
+AIR,2,simfin,AIR,error,,,0,0,0.0,Airbus [parse: 'list' object has no attribute 'get']
+BAS,2,simfin,BAS,error,,,0,0,0.0,BASF [HTTP 429]
+AI,2,simfin,AI,error,,,0,0,0.0,Air Liquide [parse: 'list' object has no attribute 'get']
+VOD,2,simfin,VOD,error,,,0,0,0.0,Vodafone [HTTP 429]
+ENEL,2,simfin,ENEL,missing,,,0,0,0.0,Enel (IT/Utilities)
+IBE,2,simfin,IBE,error,,,0,0,0.0,Iberdrola [HTTP 429]
+ENI,2,simfin,ENI,missing,,,0,0,0.0,Eni SpA (IT/Energy)
+ISP,2,simfin,ISP,missing,,,0,0,0.0,Intesa Sanpaolo (IT/Financials)
+BATS,2,simfin,BATS,error,,,0,0,0.0,BAT plc [HTTP 429]
+ASML.AS,2,yfinance,ASML.AS,missing,2024-12-31,2025-12-31,5,5,7.8,ASML Holding (NL/Technology)
+SAP.DE,2,yfinance,SAP.DE,missing,2024-12-31,2025-12-31,5,5,7.8,SAP SE (DE/Technology)
+SHEL.L,2,yfinance,SHEL.L,missing,2024-12-31,2025-12-31,5,5,7.8,Shell plc (GB/Energy)
+BP.L,2,yfinance,BP.L,missing,2024-12-31,2025-12-31,5,5,7.8,BP plc (GB/Energy)
+TTE.PA,2,yfinance,TTE.PA,missing,2024-12-31,2025-12-31,5,5,7.8,TotalEnergies (FR/Energy)
+AZN.L,2,yfinance,AZN.L,missing,2024-12-31,2025-12-31,5,5,7.8,AstraZeneca (GB/Healthcare)
+NOVN.SW,2,yfinance,NOVN.SW,missing,2024-12-31,2025-12-31,5,5,7.8,Novartis (CH/Healthcare)
+ROG.SW,2,yfinance,ROG.SW,missing,,,0,0,0.0,Roche (CH/Healthcare)
+GSK.L,2,yfinance,GSK.L,missing,2024-12-31,2025-12-31,5,5,7.8,GSK plc (GB/Healthcare)
+SAN.PA,2,yfinance,SAN.PA,missing,,,0,0,0.0,Sanofi [no capex/assets rows]
+BAYN.DE,2,yfinance,BAYN.DE,missing,2024-12-31,2025-12-31,5,5,7.8,Bayer AG (DE/Healthcare)
+NESN.SW,2,yfinance,NESN.SW,missing,,,0,0,0.0,Nestle (CH/Consumer Staples)
+ULVR.L,2,yfinance,ULVR.L,missing,,,0,0,0.0,Unilever (GB/Consumer Staples)
+DGE.L,2,yfinance,DGE.L,missing,,,0,0,0.0,Diageo (GB/Consumer Staples)
+OR.PA,2,yfinance,OR.PA,missing,,,0,0,0.0,L'Oreal (FR/Consumer Staples)
+MC.PA,2,yfinance,MC.PA,missing,,,0,0,0.0,LVMH (FR/Consumer Disc)
+HSBA.L,2,yfinance,HSBA.L,missing,,,0,0,0.0,HSBC (GB/Financials)
+BARC.L,2,yfinance,BARC.L,missing,,,0,0,0.0,Barclays (GB/Financials)
+BNP.PA,2,yfinance,BNP.PA,missing,,,0,0,0.0,BNP Paribas (FR/Financials)
+ALV.DE,2,yfinance,ALV.DE,missing,,,0,0,0.0,Allianz (DE/Financials)
+SIE.DE,2,yfinance,SIE.DE,missing,2024-12-31,2025-12-31,5,5,7.8,Siemens (DE/Industrials)
+AIR.PA,2,yfinance,AIR.PA,missing,2024-12-31,2025-12-31,5,5,7.8,Airbus (FR/Industrials)
+BAS.DE,2,yfinance,BAS.DE,missing,2024-09-30,2025-12-31,5,6,9.4,BASF (DE/Materials)
+AI.PA,2,yfinance,AI.PA,missing,,,0,0,0.0,Air Liquide (FR/Materials)
+VOD.L,2,yfinance,VOD.L,missing,,,0,0,0.0,Vodafone (GB/Comms)
+ENEL.MI,2,yfinance,ENEL.MI,missing,2024-12-31,2025-12-31,5,5,7.8,Enel (IT/Utilities)
+IBE.MC,2,yfinance,IBE.MC,missing,,,0,0,0.0,Iberdrola (ES/Utilities)
+ENI.MI,2,yfinance,ENI.MI,missing,2024-12-31,2025-12-31,5,5,7.8,Eni SpA (IT/Energy)
+ISP.MI,2,yfinance,ISP.MI,missing,,,0,0,0.0,Intesa Sanpaolo (IT/Financials)
+BATS.L,2,yfinance,BATS.L,missing,,,0,0,0.0,BAT plc (GB/Consumer Staples)

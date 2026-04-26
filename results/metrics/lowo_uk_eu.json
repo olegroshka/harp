@@ -1,0 +1,58 @@
+{
+  "panel": "experiment_b1",
+  "test_years": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "n_windows": 8,
+  "fixed_mean_delta": 0.00855220956185579,
+  "lowo_mean_delta": 0.00855220956185579,
+  "lowo_t": 2.4413066973245487,
+  "lowo_p": 0.044673241240930285,
+  "lowo_ci_lo": 0.002136563283852839,
+  "lowo_ci_hi": 0.014982903601635575,
+  "lowo_wins": 7,
+  "contamination_abs": 0.0,
+  "contamination_pct": 0.0,
+  "verdict": "PASSES",
+  "selected_per_window": {
+    "2017": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ],
+    "2018": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ],
+    "2019": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ],
+    "2020": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ],
+    "2021": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ],
+    "2022": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ],
+    "2023": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ],
+    "2024": [
+      "LAYER_macro_inst",
+      "MERGED_tech_health"
+    ]
+  }
+}

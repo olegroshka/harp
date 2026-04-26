@@ -1,0 +1,91 @@
+{
+  "panel": "experiment_b1",
+  "test_years": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "n_windows": 8,
+  "fixed_mean_delta": 0.028858492474065342,
+  "lowo_mean_delta": 0.028832067612299284,
+  "lowo_t": 8.741318051856512,
+  "lowo_p": 5.154640677830127e-05,
+  "lowo_ci_lo": 0.02298819034637538,
+  "lowo_ci_hi": 0.034977257028035,
+  "lowo_wins": 8,
+  "contamination_abs": 2.6424861766058405e-05,
+  "contamination_pct": 0.09156702066057677,
+  "verdict": "PASSES",
+  "selected_per_window": {
+    "2017": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ],
+    "2018": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ],
+    "2019": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ],
+    "2020": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_financials",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ],
+    "2021": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ],
+    "2022": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ],
+    "2023": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ],
+    "2024": [
+      "LAYER_macro_inst",
+      "SEC_energy",
+      "SEC_healthcare",
+      "SEC_technology",
+      "SEC_consumer",
+      "SEC_industrials"
+    ]
+  }
+}
